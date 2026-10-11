@@ -24,9 +24,13 @@ Special Issue: Precision Motion Systems and Control
 
 정밀 장비를 위한 6-DOF 능동 제진 시스템에서는 상판의 기하학적 중심에서 목표 제진 성능을 만족하더라도, 병진·회전 운동의 결합으로 인해 작업 영역 내 다른 위치에서 동일한 성능을 확보하기 어렵다. 특히 무게 불균형은 Cartesian-domain의 운동 사이에 coupling을 유발하여 위치별 진동 응답과 제어기 설계를 복잡하게 만든다. 본 연구에서는 작업 영역 내 평가 위치에 주어진 Cartesian-domain의 진동 요구조건을 CPD-domain의 모드별 제어기 설계 기준으로 배분하는 방법을 제안한다. 측정 주파수 응답에 CPD 디커플링을 적용하여 제어 채널을 구성하고, 강체의 위치 변환 관계를 이용하여 중심의 병진·회전 응답으로부터 평가 위치의 진동 스펙트럼을 추정한다. 모드 간 cross spectrum을 고려한 기여도에 따라 위치별 요구조건을 배분하고, 각 모드에서 가장 엄격한 조건을 sensitivity weighting으로 설정한다. 제안 방법은 기하학적 중심의 성능만을 고려하는 방법 및 Cartesian-domain에서 제어기를 설계하는 방법과 비교하며, 작업 영역 내 평가 위치의 제어 후 PSD를 바탕으로 목표 진동 기준 충족 여부를 평가한다.
 
-![기존 연구와 제안 연구의 성능 고려 영역 및 측정 위치의 PSD 비교](images/figure_02.png)
+![실험용 제진대와 평가 위치 P1~P5](images/figure_02.png)
 
-기존 연구와 제안 연구의 성능 고려 위치·영역 및 측정 위치에서의 Baseline1, Baseline2, Proposed PSD 비교 · 클릭하여 확대
+실험용 제진대와 평가 위치 P1~P5
+
+![Position 1~5의 XYZ 가속도 PSD: Baseline1, Baseline2 및 Proposed 비교](images/figure_03.png)
+
+Position 1~5의 XYZ 가속도 PSD: Baseline1, Baseline2 및 Proposed 비교
 
 Keywords: Active vibration isolation; CPD decoupling; Evaluation region; Modal requirement allocation; Sensitivity weighting
 
@@ -155,7 +159,7 @@ Fig. 6에서 회색 선은 Cartesian FRF의 RGA magnitude이고 검은색 선은
 
 \(R_{p,d}(f)\)는 진폭 허용 비율이며, \(R_{p,d}^{\mathrm{dB}}(f)\)는 이를 dB로 나타낸 요구치이다.
 
-![VC curve: 1/3-octave 대역별 허용 속도 RMS](images/figure_03.png)
+![VC curve: 1/3-octave 대역별 허용 속도 RMS](images/figure_04.png)
 
 Figure 7. VC curve의 1/3-octave 대역별 속도 RMS 기준. 자료: 논문용 Figure 자료/Figure7.png.
 
@@ -179,13 +183,13 @@ Figure 7. VC curve의 1/3-octave 대역별 속도 RMS 기준. 자료: 논문용 
 
 따라서 중심에서의 요구조건 충족만으로는 작업 영역 전체의 요구조건 충족을 보장할 수 없다. 중심의 병진·회전 응답이 위치별 성능과 어떻게 연결되는지를 고려하여 제어기 설계 조건을 구성할 필요가 있다. 구체적인 작업 영역의 정의와 위치별 요구조건 구성 방법은 Chapter 4에서 설명한다.
 
-![제진대 상판의 작업 영역과 중앙점 P1 및 네 꼭지점 P2부터 P5의 위치](images/figure_04.png)
+![제진대 상판의 작업 영역과 중앙점 P1 및 네 꼭지점 P2부터 P5의 위치](images/figure_05.png)
 
 Figure 8. 제진대 상판 위 작업 영역의 위치 관계. 검은 점은 기하학적 중심, P1은 높이 z의 중앙점이며 P2~P5는 작업 영역의 네 꼭지점이다. 그림의 위치 번호는 이후 네 꼭지점의 수식 인덱스와 구분한다.
 
 중심에서 측정한 병진·회전 응답을 이용하여 P1~P5의 가속도 PSD를 추정한 결과, 작업 영역의 중앙점 P1은 네 꼭지점에 비해 전반적으로 낮은 진동 수준을 보인다. X방향에서는 위치별 차이가 비교적 작지만, Y·Z방향에서는 특정 주파수 대역에서 뚜렷한 차이가 나타난다. 이는 중앙점의 응답만으로 작업 영역 전체의 진동 성능을 대표하기 어렵다는 것을 보여준다.
 
-![중앙점 P1과 작업 영역 네 꼭지점 P2~P5의 XYZ PSD 비교](images/figure_05.png)
+![중앙점 P1과 작업 영역 네 꼭지점 P2~P5의 XYZ PSD 비교](images/figure_06.png)
 
 높이 z의 중앙점 P1과 작업 영역의 네 꼭지점 P2~P5에서 추정한 방향별 가속도 PSD. MATLAB Sensor_Target_PSD.m의 Figure 7에서 생성함.
 
@@ -267,7 +271,7 @@ Cartesian-domain에서 정의한 위치별 성능 요구조건을 CPD 모드별 
 
 같은 목표점 요구조건에서는 기여도가 큰 모드가 더 낮은 sensitivity 상한을 받아 더 엄격한 설계 조건을 갖는다. 기여도가 0인 모드는 해당 위치·방향에서 상한을 부여하지 않는다. 전체 설계용 스펙트럼이 0인 주파수에서는 기여도 정규화를 수행하지 않는다.
 
-![P2~P5 각 꼭지점의 XYZ 방향별 CPD 모드 기여도](images/figure_06.png)
+![P2~P5 각 꼭지점의 XYZ 방향별 CPD 모드 기여도](images/figure_07.png)
 
 작업 영역의 네 꼭지점 P2~P5에서 계산한 XYZ 방향별 CPD 모드의 보수적 기여도.
 
@@ -277,7 +281,7 @@ Cartesian-domain에서 정의한 위치별 성능 요구조건을 CPD 모드별 
 
 이와 같이 각 모드의 설계 상한은 모든 평가 위치와 방향의 요구조건을 반영하여 개별적으로 구성된다.
 
-![Proposed CPD 모드별 inverse weighting](images/figure_07.png)
+![Proposed CPD 모드별 inverse weighting](images/figure_08.png)
 
 각 위치·방향의 배분 요구치와 제안 방법의 모드별 inverse weighting.
 
@@ -329,7 +333,7 @@ Cartesian-domain에서 정의한 위치별 성능 요구조건을 CPD 모드별 
 
 구동기 단의 센서 신호는 피드백에 사용하고, 독립 가속도 센서의 응답은 제진 성능 평가에 사용한다. 측정된 가속도 스펙트럼은 센서 감도와 분석 대역폭을 반영하여 PSD로 환산한다. 각 제어 방법의 결과는 동일한 위치와 방향을 기준으로 비교하며, 성능 기준으로 VC-C에 대응하는 가속도 PSD 환산선을 사용한다.
 
-![실험용 제진대와 평가 위치 P1~P5](images/figure_08.png)
+![실험용 제진대와 평가 위치 P1~P5](images/figure_09.png)
 
 실험용 제진대와 작업 영역의 평가 위치 P1~P5. P1은 중앙점이며, P2~P5는 네 꼭지점이다.
 
@@ -353,15 +357,15 @@ Baseline1과 Proposed의 비교는 성능 요구조건을 중심에서 작업 �
 
 Sensitivity가 설계 기준 아래에 놓이는 주파수에서는 해당 채널의 진동 저감 요구조건을 만족한다. Baseline1은 중심 응답으로부터 요구조건을 구성하는 반면, Proposed는 네 꼭지점의 위치·방향별 요구조건을 함께 반영한다. 따라서 두 방법은 동일한 CPD plant를 사용하더라도 서로 다른 모드별 설계 기준을 갖는다. Baseline2의 sensitivity는 Cartesian plant의 대각 FRF를 기준으로 계산하며, 채널 간 coupling을 포함하는 실제 제진 성능은 다음 절의 측정 PSD로 평가한다.
 
-![Baseline1: 중심 조건만 사용하는 CPD 제어기 설계 예시.](images/figure_09.png)
+![Baseline1: 중심 조건만 사용하는 CPD 제어기 설계 예시.](images/figure_10.png)
 
 Figure 13. Baseline1: 중심 조건만 사용하는 CPD 제어기 설계 예시.
 
-![Baseline2: 네 목표점 조건을 Cartesian 채널에 배분하고 대각 FRF로 설계한 예시.](images/figure_10.png)
+![Baseline2: 네 목표점 조건을 Cartesian 채널에 배분하고 대각 FRF로 설계한 예시.](images/figure_11.png)
 
 Figure 14. Baseline2: 네 목표점 조건을 Cartesian 채널에 배분하고 대각 FRF로 설계한 예시.
 
-![Proposed: 네 목표점의 worst-case 요구치를 적용한 CPD 제어기 설계 예시.](images/figure_11.png)
+![Proposed: 네 목표점의 worst-case 요구치를 적용한 CPD 제어기 설계 예시.](images/figure_12.png)
 
 Figure 15. Proposed: 네 목표점의 worst-case 요구치를 적용한 CPD 제어기 설계 예시.
 
@@ -374,7 +378,7 @@ Proposed method의 경우 모든 지점에서 목표 제어 성능을 달성함.
 
 아래 그림은 Position 1~5에서 측정한 X·Y·Z 방향의 가속도 PSD를 비교한 결과이다. 각 행은 평가 위치를, 각 열은 진동 방향을 나타낸다. 각 subplot에는 Baseline1, Baseline2 및 Proposed의 응답과 VC-C의 가속도 PSD 환산선을 함께 표시한다. 위치별 공진 응답과 제어 방법 간 차이를 비교하기 위해 3~20 Hz 구간을 linear PSD scale로 제시한다.
 
-![Position 1~5별 XYZ 가속도 PSD: linear Y scale](images/figure_12.png)
+![Position 1~5별 XYZ 가속도 PSD: linear Y scale](images/figure_13.png)
 
 Position 1~5를 행으로, X·Y·Z 방향을 열로 배치한 Baseline1·Baseline2·Proposed의 가속도 PSD 비교. Y축은 linear scale이며, VC-C의 설계용 PSD 환산선을 함께 표시함.
 
