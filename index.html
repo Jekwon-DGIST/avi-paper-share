@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261031T120421Z">
+<meta name="avi-build" content="20261031T122049Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -333,9 +333,9 @@ footer{margin-top:18px}
 </div>
 </div>
 </section>
-<div class="modal-tone comparison-explanation cpd-path-bound" style="font-size:15px">
+<div class="modal-tone comparison-explanation cpd-ppt-bound" style="font-size:15px">
 <h2>2. Noise 민감성 및 Control effort를 고려하여 어떤 모드를 통해 제어를 할지 정하는 방법</h2>
-<ul style="margin:18px 0 0;padding-left:22px"><li>핵심 : <strong>공통 지면 입력에 대한 모드별 입력 경로</strong>를 반영하여, 작업 영역의 요구를 보장하는 <strong>CPD 모드별 전달률 상한의 조건</strong>을 도출한다.</li></ul>
+<ul style="margin:18px 0 0;padding-left:22px"><li>핵심 : <strong>작업 위치의 전달률을 모드별 sensitivity로 표현</strong>하고, <strong>모드 사이의 교차항을 제한</strong>하여 각 모달 제어기가 만족해야 하는 성능 조건을 도출한다.</li></ul>
 
 <p><strong>작업 위치의 전달률</strong>을 Modal space (CPD 디커플링 이후의 좌표 공간)의 전달률과 변환행렬의 곱으로 표현한다.</p>
 <div class="eq">\[
@@ -346,56 +346,71 @@ footer{margin-top:18px}
 \boldsymbol C_i&=\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}.
 \end{aligned}
 \]</div>
-<p>\(\boldsymbol C_i\)는 후보 위치와 CPD 변환으로 정해지는 <strong>실수 상수 행렬</strong>이다.</p>
+<p>\(\boldsymbol C_i\)는 후보 위치와 CPD 변환으로 정해지는 <strong>실수 상수 행렬</strong>이다. <strong>passive 모달 전달률</strong>과 <strong>모달 sensitivity</strong>를 다음과 같이 표현한다.</p>
+<div class="eq">\[
+\boldsymbol T_{GM}^{p}=\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{p},
+\qquad
+\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}=S_{m,[k]}\boldsymbol T_{GM,[k,:]}^{p}.
+\]</div>
 <p>따라서 <strong>출력 방향 \(d\)의 전달률</strong>은 <strong>여섯 모드(CPD의 모드)의 기여 합</strong>이다.</p>
 <div class="eq">\[
 \boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)
-=\sum_{k=1}^{6}C_{i,[d,k]}\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}.
+=\sum_{k=1}^{6}C_{i,[d,k]}S_{m,[k]}\boldsymbol T_{GM,[k,:]}^{p}.
 \]</div>
 
-<p>\(\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}\)은 <strong>여섯 지면 입력에 대한 전달률을 모은 행벡터</strong>이므로, 2-norm은 각 원소의 절댓값 제곱을 더한 뒤 제곱근을 취한 값이다.</p>
+<p>\(\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}\)은 <strong>여섯 지면 입력에 대한 전달률을 모은 행벡터</strong>이므로, 2-norm은 다음과 같이 정의된다.</p>
 <div class="eq">\[
 \left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
-=\sqrt{
-\left|T_{GW,[d,1]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2
-+\cdots+
-\left|T_{GW,[d,6]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2}.
+=\sqrt{\left|T_{GW,[d,1]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2+\cdots+\left|T_{GW,[d,6]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2}.
 \]</div>
-<p>전달률의 2-norm을 <strong>각 모드의 크기 항</strong>과 <strong>모드 사이의 교차항</strong>으로 전개하면 다음과 같다.</p>
+<p>각 후보 위치 \(i\)와 방향 \(d\)에서, <strong>변환계수와 passive 전달률의 내적</strong>을 \(Q_{[k,j]}\)로 묶는다.</p>
+<div class="eq">\[
+Q_{[k,j]}=C_{i,[d,k]}C_{i,[d,j]}\boldsymbol T_{GM,[k,:]}^{p}\bigl(\boldsymbol T_{GM,[j,:]}^{p}\bigr)^{\mathsf H},
+\qquad k,j\in\{1,\ldots,6\}.
+\]</div>
+<p>이를 이용하면 <strong>각 모드의 크기 항</strong>과 <strong>모드 사이의 교차항</strong>을 다음과 같이 표현할 수 있다.</p>
 <div class="eq" id="modal-norm-expansion">\[
-\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2=\sqrt{\sum_{k=1}^{6}C_{i,[d,k]}^2\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2^2+2\sum_{k<\ell}\operatorname{Re}\!\left\{C_{i,[d,k]}C_{i,[d,\ell]}\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\bigl(\boldsymbol T_{GM,[\ell,:]}^{\mathrm{cl}}\bigr)^{\mathsf H}\right\}}.
+\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
+=\sqrt{\sum_{k=1}^{6}Q_{[k,k]}|S_{m,[k]}|^2+2\sum_{k&lt;j}\operatorname{Re}\!\left\{Q_{[k,j]}S_{m,[k]}\overline{S_{m,[j]}}\right\}}.
 \]</div>
-<p>제어하지 않은 상태에서 지면 입력이 CPD 모달 운동으로 전달되는 <strong>passive 전달률</strong>을 \(\boldsymbol T_{GM}^{p}\)로 나타낸다. 각 모드의 <strong>폐루프 전달률</strong>은 <strong>passive 전달률</strong>과 <strong>sensitivity \(S_k\)</strong>의 곱으로 표현한다.</p>
-<div class="eq">\[
-\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}=S_k\boldsymbol T_{GM,[k,:]}^{p},
-\qquad k=1,\ldots,6.
-\]</div>
-<p>같은 지면 입력 좌표와 정규화 기준에서, <strong>두 모드의 입력 경로가 얼마나 같은 방향인지</strong>를 \(\rho_{k\ell}\)로 나타낸다.</p>
-<div class="eq">\[
-\rho_{k\ell}
-=\frac{\left|\boldsymbol T_{GM,[k,:]}^{p}\bigl(\boldsymbol T_{GM,[\ell,:]}^{p}\bigr)^{\mathsf H}\right|}
-{\left\|\boldsymbol T_{GM,[k,:]}^{p}\right\|_2\left\|\boldsymbol T_{GM,[\ell,:]}^{p}\right\|_2},
-\qquad 0\leq\rho_{k\ell}\leq1.
-\]</div>
-<p>\(\rho_{k\ell}=0\)이면 두 입력 경로는 직교하고, \(\rho_{k\ell}=1\)이면 복소수 배수 관계다. 입력 경로가 영행인 모드는 기여가 없으므로 합에서 제외한다.</p>
 
-<p>각 교차항은 <strong>입력 경로의 관계 \(\rho_{k\ell}\)</strong>를 이용해 제한한다.</p>
+<p><strong>교차항</strong>은 다음 부등식으로 <strong>각 모드의 sensitivity 크기 항</strong>으로 분리한다.</p>
 <div class="eq">\[
-\begin{aligned}
-&\operatorname{Re}\!\left\{
-C_{i,[d,k]}C_{i,[d,\ell]}
-\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}
-\bigl(\boldsymbol T_{GM,[\ell,:]}^{\mathrm{cl}}\bigr)^{\mathsf H}
-\right\}\\
-&\quad\leq |C_{i,[d,k]}|\,|C_{i,[d,\ell]}|\,|S_k|\,|S_\ell|\,
-\left|\boldsymbol T_{GM,[k,:]}^{p}\bigl(\boldsymbol T_{GM,[\ell,:]}^{p}\bigr)^{\mathsf H}\right|\\
-&\quad=\rho_{k\ell}|C_{i,[d,k]}|\,|C_{i,[d,\ell]}|\,\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2\left\|\boldsymbol T_{GM,[\ell,:]}^{\mathrm{cl}}\right\|_2.
-\end{aligned}
+2\operatorname{Re}\!\left\{Q_{[k,j]}S_{m,[k]}\overline{S_{m,[j]}}\right\}
+\leq2|Q_{[k,j]}|\,|S_{m,[k]}|\,|S_{m,[j]}|
+\leq |Q_{[k,j]}|\left(|S_{m,[k]}|^2+|S_{m,[j]}|^2\right).
 \]</div>
-<p>따라서 <strong>sensitivity의 위상이 바뀌어도 유효한 상한</strong>을 얻는다.</p>
+<p>\(Q_{[k,k]}\geq0\), \(|Q_{[k,j]}|=|Q_{[j,k]}|\)이므로, 같은 모드의 \(|S_{m,[k]}|^2\) 항을 모으면 계수는 다음과 같다.</p>
+<div class="eq">\[
+B_{i,[d,k]}=Q_{[k,k]}+\sum_{j\ne k}|Q_{[k,j]}|
+=\sum_{j=1}^{6}|Q_{[k,j]}|.
+\]</div>
+<p>따라서 <strong>작업 위치의 전달률</strong>을 <strong>모드별 sensitivity 크기로 구성한 상한</strong>으로 제한할 수 있다.</p>
 <div class="eq" id="modal-norm-upper-bound">\[
-\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2\leq\sqrt{\sum_{k=1}^{6}C_{i,[d,k]}^2\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2^2+2\sum_{k<\ell}\rho_{k\ell}|C_{i,[d,k]}|\,|C_{i,[d,\ell]}|\,\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2\left\|\boldsymbol T_{GM,[\ell,:]}^{\mathrm{cl}}\right\|_2}.
+\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
+\leq\sqrt{\sum_{k=1}^{6}B_{i,[d,k]}|S_{m,[k]}|^2}.
 \]</div>
+<p><strong>모든 후보 위치에서 다음 조건을 만족하면 작업 영역의 목표 전달률을 만족한다.</strong></p>
+<div class="eq">\[
+\sum_{k=1}^{6}B_{i,[d,k]}(j\omega)|S_{m,[k]}(j\omega)|^2
+\leq|R(j\omega)|^2,
+\qquad i\in\mathcal I.
+\]</div>
+
+<p>각 모드에 허용할 <strong>배분 비율 \(\beta_k\)</strong>를 도입하면, <strong>모드별 개별 충분조건</strong>은 다음과 같다. 배분값은 아직 정하지 않는다.</p>
+<div class="eq">\[
+B_{i,[d,k]}|S_{m,[k]}|^2\leq\beta_k|R|^2,
+\qquad\beta_k\geq0,\qquad\sum_{k=1}^{6}\beta_k\leq1.
+\]</div>
+<p>모든 후보 위치와 요구 방향의 조건을 함께 적용하여, <strong>각 모드의 sensitivity 상한</strong>을 <strong>weighting function의 크기</strong>로 표현한다.</p>
+<div class="eq">\[
+|S_{m,[k]}(j\omega)|\leq\frac{1}{|W_k(j\omega)|},
+\qquad
+\frac{1}{|W_k(j\omega)|}
+=\min_{i,d}\frac{\sqrt{\beta_k}\,|R(j\omega)|}{\sqrt{B_{i,[d,k]}(j\omega)}}.
+\]</div>
+<p>최솟값은 선별한 후보 위치와 요구 방향에 대해 취한다. \(B_{i,[d,k]}=0\)인 항은 해당 모드에 제약을 주지 않으므로 제외한다.</p>
+<p>여기까지는 <strong>작업 영역 요구를 CPD 모드별 설계 조건으로 연결한 단계</strong>다. Noise 민감성과 Control effort를 반영한 배분 비율의 선택은 다음 단계에서 다룬다.</p>
 </div>
 <section class="contribution-callout" id="panel-c2" aria-labelledby="modal-allocation-title">
 <div class="chapter-memo" data-memo-key="panel-c2">
