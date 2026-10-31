@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261031T110139Z">
+<meta name="avi-build" content="20261031T120421Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -363,7 +363,7 @@ footer{margin-top:18px}
 \]</div>
 <p>전달률의 2-norm을 <strong>각 모드의 크기 항</strong>과 <strong>모드 사이의 교차항</strong>으로 전개하면 다음과 같다.</p>
 <div class="eq" id="modal-norm-expansion">\[
-\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2=\sqrt{\sum_{k=1}^{6}C_{i,[d,k]}^2\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2^2+2\sum_{1\leq k<\ell\leq6}\operatorname{Re}\!\left\{C_{i,[d,k]}C_{i,[d,\ell]}\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\bigl(\boldsymbol T_{GM,[\ell,:]}^{\mathrm{cl}}\bigr)^{\mathsf H}\right\}}.
+\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2=\sqrt{\sum_{k=1}^{6}C_{i,[d,k]}^2\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2^2+2\sum_{k<\ell}\operatorname{Re}\!\left\{C_{i,[d,k]}C_{i,[d,\ell]}\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\bigl(\boldsymbol T_{GM,[\ell,:]}^{\mathrm{cl}}\bigr)^{\mathsf H}\right\}}.
 \]</div>
 <p>제어하지 않은 상태에서 지면 입력이 CPD 모달 운동으로 전달되는 <strong>passive 전달률</strong>을 \(\boldsymbol T_{GM}^{p}\)로 나타낸다. 각 모드의 <strong>폐루프 전달률</strong>은 <strong>passive 전달률</strong>과 <strong>sensitivity \(S_k\)</strong>의 곱으로 표현한다.</p>
 <div class="eq">\[
@@ -394,7 +394,7 @@ C_{i,[d,k]}C_{i,[d,\ell]}
 \]</div>
 <p>따라서 <strong>sensitivity의 위상이 바뀌어도 유효한 상한</strong>을 얻는다.</p>
 <div class="eq" id="modal-norm-upper-bound">\[
-\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2\leq\sqrt{\sum_{k=1}^{6}C_{i,[d,k]}^2\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2^2+2\sum_{1\leq k<\ell\leq6}\rho_{k\ell}|C_{i,[d,k]}|\,|C_{i,[d,\ell]}|\,\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2\left\|\boldsymbol T_{GM,[\ell,:]}^{\mathrm{cl}}\right\|_2}.
+\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2\leq\sqrt{\sum_{k=1}^{6}C_{i,[d,k]}^2\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2^2+2\sum_{k<\ell}\rho_{k\ell}|C_{i,[d,k]}|\,|C_{i,[d,\ell]}|\,\left\|\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}\right\|_2\left\|\boldsymbol T_{GM,[\ell,:]}^{\mathrm{cl}}\right\|_2}.
 \]</div>
 </div>
 <section class="contribution-callout" id="panel-c2" aria-labelledby="modal-allocation-title">
