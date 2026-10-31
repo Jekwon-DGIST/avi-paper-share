@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261031T122407Z">
+<meta name="avi-build" content="20261031T122501Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -379,37 +379,6 @@ Q_{[k,j]}=C_{i,[d,k]}C_{i,[d,j]}\boldsymbol T_{GM,[k,:]}^{p}\bigl(\boldsymbol T_
 2\operatorname{Re}\!\left\{Q_{[k,j]}S_{m,[k]}\overline{S_{m,[j]}}\right\}
 \leq2|Q_{[k,j]}|\,|S_{m,[k]}|\,|S_{m,[j]}|.
 \]</div>
-<p>\(Q_{[k,k]}\geq0\), \(|Q_{[k,j]}|=|Q_{[j,k]}|\)이므로, 같은 모드의 \(|S_{m,[k]}|^2\) 항을 모으면 계수는 다음과 같다.</p>
-<div class="eq">\[
-B_{i,[d,k]}=Q_{[k,k]}+\sum_{j\ne k}|Q_{[k,j]}|
-=\sum_{j=1}^{6}|Q_{[k,j]}|.
-\]</div>
-<p>따라서 <strong>작업 위치의 전달률</strong>을 <strong>모드별 sensitivity 크기로 구성한 상한</strong>으로 제한할 수 있다.</p>
-<div class="eq" id="modal-norm-upper-bound">\[
-\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
-\leq\sqrt{\sum_{k=1}^{6}B_{i,[d,k]}|S_{m,[k]}|^2}.
-\]</div>
-<p><strong>모든 후보 위치에서 다음 조건을 만족하면 작업 영역의 목표 전달률을 만족한다.</strong></p>
-<div class="eq">\[
-\sum_{k=1}^{6}B_{i,[d,k]}(j\omega)|S_{m,[k]}(j\omega)|^2
-\leq|R(j\omega)|^2,
-\qquad i\in\mathcal I.
-\]</div>
-
-<p>각 모드에 허용할 <strong>배분 비율 \(\beta_k\)</strong>를 도입하면, <strong>모드별 개별 충분조건</strong>은 다음과 같다. 배분값은 아직 정하지 않는다.</p>
-<div class="eq">\[
-B_{i,[d,k]}|S_{m,[k]}|^2\leq\beta_k|R|^2,
-\qquad\beta_k\geq0,\qquad\sum_{k=1}^{6}\beta_k\leq1.
-\]</div>
-<p>모든 후보 위치와 요구 방향의 조건을 함께 적용하여, <strong>각 모드의 sensitivity 상한</strong>을 <strong>weighting function의 크기</strong>로 표현한다.</p>
-<div class="eq">\[
-|S_{m,[k]}(j\omega)|\leq\frac{1}{|W_k(j\omega)|},
-\qquad
-\frac{1}{|W_k(j\omega)|}
-=\min_{i,d}\frac{\sqrt{\beta_k}\,|R(j\omega)|}{\sqrt{B_{i,[d,k]}(j\omega)}}.
-\]</div>
-<p>최솟값은 선별한 후보 위치와 요구 방향에 대해 취한다. \(B_{i,[d,k]}=0\)인 항은 해당 모드에 제약을 주지 않으므로 제외한다.</p>
-<p>여기까지는 <strong>작업 영역 요구를 CPD 모드별 설계 조건으로 연결한 단계</strong>다. Noise 민감성과 Control effort를 반영한 배분 비율의 선택은 다음 단계에서 다룬다.</p>
 </div>
 <section class="contribution-callout" id="panel-c2" aria-labelledby="modal-allocation-title">
 <div class="chapter-memo" data-memo-key="panel-c2">
