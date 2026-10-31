@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>작업별 시편 판독과 제진 Off / On</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#203e60;font:16px/1.6 'Malgun Gothic','Segoe UI',sans-serif}main{max-width:1120px;margin:auto;padding:22px 24px 12px}.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stage{font:inherit;text-align:left;background:#f3f6fa;border:1px solid #d9e2ec;border-radius:10px;padding:11px 15px;color:#687a90;cursor:pointer}.stage strong{display:block;font-size:17px}.stage span{font-size:14px}.stage[aria-pressed="true"]{background:#e9f2fc;border-color:#315f91;color:#203e60;box-shadow:inset 0 3px #315f91}.canvas{margin:12px 0 0}svg{display:block;width:100%;height:auto}.isolation-bar{display:flex;align-items:center;margin:14px 0 0;padding:10px 15px;background:#f7f9fc;border-radius:9px}.isolation-sequence{display:flex;align-items:center;gap:14px;font-size:14px;font-weight:600}.isolation-step{color:#8b98a7;opacity:.6}.isolation-step.active{opacity:1;color:#99551c}.isolation-step[data-phase="on"].active{color:#276440}.isolation-step::before{content:'●';font-size:10px;margin-right:6px}.sequence-arrow{color:#a5b3c1}button:focus-visible{outline:3px solid #b3842a;outline-offset:3px}@media(max-width:600px){main{padding:14px 9px 5px}.stages{gap:5px}.stage{padding:8px 7px}.stage strong{font-size:14px}.stage span{font-size:11px}.isolation-bar{padding:8px 10px;margin-top:10px}.isolation-sequence{font-size:12px;gap:9px}}
+</style>
+</head>
+<body><main>
+<div class="stages" role="group" aria-label="작업 선택">
+<button class="stage" aria-pressed="true" data-stage="0"><strong>작업 A</strong><span>중앙 시편 하나</span></button>
+<button class="stage" aria-pressed="false" data-stage="1"><strong>작업 B</strong><span>시편 한 줄</span></button>
+<button class="stage" aria-pressed="false" data-stage="2"><strong>작업 C</strong><span>웨이퍼 소자 검사</span></button>
+</div>
+<div class="isolation-bar">
+<div class="isolation-sequence" aria-label="제진 Off에서 On으로 자동 전환">
+<span class="isolation-step active" data-phase="off">제진 Off</span><span class="sequence-arrow">→</span>
+<span class="isolation-step" data-phase="on">제진 On</span>
+</div>
+</div>
+<figure class="canvas" aria-label="정사각형 상판 위의 시편과 웨이퍼 소자를 현미경 시야로 관찰하는 작업">
+<svg viewBox="0 0 1000 625" role="img" aria-labelledby="figure-title figure-desc">
+<title id="figure-title">작업별 시편과 반도체 웨이퍼 관찰</title>
+<desc id="figure-desc">작업 A는 중앙의 시편 하나, 작업 B는 한 줄의 작은 시편, 작업 C는 반도체 소자와 배선이 반복된 원형 웨이퍼를 관찰한다. 제진 Off에서는 현미경 확대 영상이 떨리고 On에서는 안정된다.</desc>
+<defs>
+<pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r=".9" fill="#d0d9e3"/></pattern>
+<filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#203e60" flood-opacity=".08"/></filter>
+<clipPath id="scope-clip"><circle cx="785" cy="345" r="133"/></clipPath>
+<g id="micro-tile">
+<rect x="-25" y="-25" width="50" height="50" rx="2" fill="#fff" stroke="#cbd5e1" stroke-width=".7"/>
+<path d="M-18-18h8v3h-5v5h-3zM18-18h-8v3h5v5h3zM-18 18h8v-3h-5v-5h-3zM18 18h-8v-3h5v-5h3z" fill="#4f657b"/>
+<path d="M-8-10h16v9H-8zM-5-7h10v3H-5z" fill="none" stroke="#315f91" stroke-width=".8"/>
+<path d="M-10 3h20M-10 5h20M-10 7h20" stroke="#6f8193" stroke-width=".65"/>
+<text x="0" y="14" text-anchor="middle" font-family="Consolas,monospace" font-size="5.2" fill="#203e60">AVI LAB</text>
+</g>
+
+<radialGradient id="wafer-base" cx="30%" cy="20%" r="95%">
+<stop offset="0" stop-color="#b7d2df"/><stop offset=".24" stop-color="#739cbb"/><stop offset=".51" stop-color="#716f9b"/><stop offset=".75" stop-color="#497c96"/><stop offset="1" stop-color="#203f58"/>
+</radialGradient>
+<linearGradient id="wafer-sheen" x1="0" y1="0" x2="1" y2=".7"><stop offset="0" stop-color="#dffaff" stop-opacity=".04"/><stop offset=".38" stop-color="#e2dcff" stop-opacity=".24"/><stop offset=".52" stop-color="#fff" stop-opacity=".03"/><stop offset=".78" stop-color="#87d5df" stop-opacity=".2"/><stop offset="1" stop-color="#081d35" stop-opacity=".12"/></linearGradient>
+<clipPath id="wafer-clip"><circle cx="305" cy="345" r="196"/></clipPath>
+<g id="chip-die">
+<rect x="0" y="0" width="23.4" height="27.4" rx=".45" fill="#6d9eb5" stroke="#c6dce6" stroke-width=".32"/>
+<rect x="1.2" y="1.3" width="21" height="24.8" fill="none" stroke="#294d66" stroke-width=".4"/>
+<rect x="2.4" y="3" width="11.3" height="14.3" fill="#254b66" stroke="#b2c9d9" stroke-width=".3"/>
+<g fill="#98c1cd" stroke="#47768e" stroke-width=".15">
+<rect x="3.1" y="3.8" width="1.65" height="1.5"/><rect x="5.550000000000001" y="3.8" width="1.65" height="1.5"/><rect x="8.0" y="3.8" width="1.65" height="1.5"/><rect x="10.450000000000001" y="3.8" width="1.65" height="1.5"/><rect x="3.1" y="6.15" width="1.65" height="1.5"/><rect x="5.550000000000001" y="6.15" width="1.65" height="1.5"/><rect x="8.0" y="6.15" width="1.65" height="1.5"/><rect x="10.450000000000001" y="6.15" width="1.65" height="1.5"/><rect x="3.1" y="8.5" width="1.65" height="1.5"/><rect x="5.550000000000001" y="8.5" width="1.65" height="1.5"/><rect x="8.0" y="8.5" width="1.65" height="1.5"/><rect x="10.450000000000001" y="8.5" width="1.65" height="1.5"/><rect x="3.1" y="10.850000000000001" width="1.65" height="1.5"/><rect x="5.550000000000001" y="10.850000000000001" width="1.65" height="1.5"/><rect x="8.0" y="10.850000000000001" width="1.65" height="1.5"/><rect x="10.450000000000001" y="10.850000000000001" width="1.65" height="1.5"/><rect x="3.1" y="13.2" width="1.65" height="1.5"/><rect x="5.550000000000001" y="13.2" width="1.65" height="1.5"/><rect x="8.0" y="13.2" width="1.65" height="1.5"/><rect x="10.450000000000001" y="13.2" width="1.65" height="1.5"/>
+</g>
+<g fill="none" stroke="#d3c897" stroke-width=".38">
+<path d="M14.9 3v14h5.2v5.2h-4.7M16.2 3v12.5h5.1M17.5 3v11h3.8M18.8 3v9.5h2.5"/>
+<path d="M3 18.5h10.6v5H3zM4.5 20h7.6v2H4.5zM3 25h16.8M6 17.5v1M9 17.5v1M12 17.5v1"/>
+</g>
+<g fill="#dae2d1">
+<rect x="0.2" y="3" width=".7" height="1.1"/><rect x="0.2" y="6" width=".7" height="1.1"/><rect x="0.2" y="9" width=".7" height="1.1"/><rect x="0.2" y="12" width=".7" height="1.1"/><rect x="0.2" y="15" width=".7" height="1.1"/><rect x="0.2" y="18" width=".7" height="1.1"/><rect x="0.2" y="21" width=".7" height="1.1"/><rect x="22.5" y="3" width=".7" height="1.1"/><rect x="22.5" y="6" width=".7" height="1.1"/><rect x="22.5" y="9" width=".7" height="1.1"/><rect x="22.5" y="12" width=".7" height="1.1"/><rect x="22.5" y="15" width=".7" height="1.1"/><rect x="22.5" y="18" width=".7" height="1.1"/><rect x="22.5" y="21" width=".7" height="1.1"/>
+</g>
+<g fill="#315e77"><rect x="15.3" y="18.2" width="4" height="3"/><rect x="15.3" y="22" width="4" height="1.4"/></g>
+<text x="3" y="24.3" font-family="Consolas,monospace" font-size=".95" fill="#d6e5e9">AVI · CMOS</text>
+</g>
+<g id="sample-world"></g>
+</defs>
+<g font-family="Malgun Gothic,sans-serif" fill="#536b84">
+<text x="45" y="45" fill="#203e60" font-size="19" font-weight="600">제진대 상판 · 평면도</text>
+<text x="785" y="177" text-anchor="middle" fill="#203e60" font-size="19" font-weight="600">현미경 확대 시야</text>
+</g>
+<rect x="45" y="85" width="520" height="520" rx="14" fill="#f2f5f9" stroke="#7890a8" stroke-width="2" filter="url(#shadow)"/>
+<rect x="55" y="95" width="500" height="500" rx="9" fill="url(#grid)"/>
+<g fill="#fff" stroke="#9cabbc" stroke-width="2"><circle cx="66" cy="106" r="6"/><circle cx="544" cy="106" r="6"/><circle cx="66" cy="584" r="6"/><circle cx="544" cy="584" r="6"/></g>
+<path d="M305 100V590M60 345H550" stroke="#bac7d5" stroke-dasharray="4 6"/>
+<use href="#sample-world"/>
+<rect id="region" x="195" y="220" width="180" height="240" rx="7" fill="#dceafb" fill-opacity=".28" stroke="#315f91" stroke-width="2.3"/>
+<text id="region-label" x="285" y="207" text-anchor="middle" font-family="Malgun Gothic,sans-serif" fill="#315f91" font-size="16" font-weight="600">작업 영역 A</text>
+<path id="connector" fill="none" stroke="#7f9bb9" stroke-width="1.4" stroke-dasharray="5 5"/>
+<circle id="halo" r="20" fill="#e4f0fc" fill-opacity=".32" stroke="#214e7f" stroke-width="2"/>
+<path id="reticle" fill="none" stroke="#214e7f" stroke-width="1.4"/>
+<circle id="point" r="2.5" fill="#214e7f"/>
+<circle cx="785" cy="345" r="142" fill="#f6f9fc" stroke="#d3deea" stroke-width="2"/>
+<g clip-path="url(#scope-clip)">
+<circle cx="785" cy="345" r="133" fill="#f8fafc"/>
+<g id="vibration-world"><g id="zoom-world"><use href="#sample-world"/></g></g>
+</g>
+<circle cx="785" cy="345" r="133" fill="none" stroke="#315f91" stroke-width="2"/>
+<path d="M771 345h28M785 331v28" stroke="#ab6c27" stroke-width="1" opacity=".65"/>
+<g font-family="Malgun Gothic,sans-serif" text-anchor="middle">
+</g>
+</svg>
+</figure>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id),ns='http://www.w3.org/2000/svg';
+
+function el(tag,attributes={},text=''){
+ const node=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(attributes))node.setAttribute(k,v);if(text)node.textContent=text;return node;
+}
+function smallSpecimen(x,y,id,scale=1){
+ const g=el('g',{'data-specimen':'small',transform:`translate(${x} ${y}) scale(${scale})`});g.appendChild(el('use',{href:'#micro-tile'}));
+ g.appendChild(el('text',{x:0,y:22,'text-anchor':'middle','font-family':'Consolas,monospace','font-size':4.6,fill:'#65788e'},id));return g;
+}
+
+const stages=[
+ {label:'A',box:[272,312,66,66],targets:[{x:305,y:345,text:'AVI LAB · A'}],zoom:5,duration:20000,offUntil:3500,scanStart:5000},
+ {label:'B',box:[100,300,410,90],targets:[145,225,305,385,465].map((x,i)=>({x,y:345,text:`AVI LAB · B${i+1}`})),zoom:8.8,duration:8000,offUntil:1400,scanStart:2000},
+ {label:'C',box:[99,139,412,412],duration:16200,offUntil:900,scanStart:1200,targets:[
+ {x:305,y:345},{x:230,y:287},{x:380,y:287},{x:455,y:345},
+ {x:380,y:432},{x:230,y:432},{x:155,y:345},{x:305,y:200},{x:305,y:490}
+ ],zoom:9.2}
+];
+function buildSpecimens(){
+ const world=$('sample-world');world.replaceChildren();
+ if(index===0){world.appendChild(smallSpecimen(305,345,'A',1.05));return;}
+ if(index===1){for(let k=0;k<5;k++)world.appendChild(smallSpecimen(145+k*80,345,'B'+(k+1),.5));return;}
+
+ const g=el('g',{'data-specimen':'wafer'});
+ g.appendChild(el('circle',{cx:305,cy:345,r:198,fill:'url(#wafer-base)',stroke:'#b5ccdb','stroke-width':1.4}));
+ const dies=el('g',{'clip-path':'url(#wafer-clip)'});
+ for(let row=-7;row<=7;row++)for(let col=-8;col<=8;col++){
+  const x=305+col*25-11.7,y=345+row*29-13.7;
+  if(Math.hypot(col*25,row*29)>220)continue;
+  const die=el('use',{href:'#chip-die',x,y,opacity:.72+((col*3+row*5+100)%7)*.035});dies.appendChild(die);
+ }
+ g.appendChild(dies);
+ g.appendChild(el('circle',{cx:305,cy:345,r:196,fill:'url(#wafer-sheen)','pointer-events':'none'}));
+ g.appendChild(el('circle',{cx:305,cy:345,r:195,fill:'none',stroke:'#dfedf5','stroke-width':.7,opacity:.65}));
+ g.appendChild(el('path',{d:'M299 543L305 534L311 543Z',fill:'#f2f5f9',stroke:'#b5ccdb','stroke-width':.6}));
+ world.appendChild(g);
+}
+let duration=stages[0].duration,index=0,elapsed=0,last=0,motionTime=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,isolationPhase='',vibrationAmplitude=1;
+function updateIsolation(){
+ const next=elapsed<stages[index].offUntil?'off':'on';
+ if(next!==isolationPhase){isolationPhase=next;document.querySelectorAll('.isolation-step').forEach(node=>node.classList.toggle('active',node.dataset.phase===next));}
+ vibrationAmplitude=next==='off'?1:0;
+}
+function setStage(i){
+ index=i;duration=stages[i].duration;elapsed=0;motionTime=0;isolationPhase='';updateIsolation();buildSpecimens();
+ const s=stages[i],[x,y,w,h]=s.box;for(const[k,v]of Object.entries({x,y,width:w,height:h}))$('region').setAttribute(k,v);$('region-label').setAttribute('x',x+w/2);$('region-label').setAttribute('y',y-13);$('region-label').textContent='작업 영역 '+s.label;
+ document.querySelectorAll('.stage').forEach((b,k)=>b.setAttribute('aria-pressed',String(k===i)));render();
+}
+function render(){
+ updateIsolation();const s=stages[index],local=Math.max(0,Math.min(.999999,(elapsed-s.scanStart)/(duration-s.scanStart)));
+ const position=local*s.targets.length,k=Math.min(s.targets.length-1,Math.floor(position)),phase=position-k,target=s.targets[k],previous=s.targets[Math.max(0,k-1)];
+ const moving=k>0&&phase<.22,frac=Math.min(1,phase/.22),smooth=frac*frac*(3-2*frac),x=previous.x+(target.x-previous.x)*smooth,y=previous.y+(target.y-previous.y)*smooth;
+ for(const id of ['point','halo']){$(id).setAttribute('cx',x);$(id).setAttribute('cy',y);}
+ $('reticle').setAttribute('d',`M${x-27} ${y}h12M${x+15} ${y}h12M${x} ${y-27}v12M${x} ${y+15}v12`);
+ $('connector').setAttribute('d',`M${x+22} ${y}L605 ${y}L644 345`);
+ $('zoom-world').setAttribute('transform',`translate(785 345) scale(${s.zoom}) translate(${-x} ${-y})`);
+ const time=motionTime/1000,dx=vibrationAmplitude*(8*Math.sin(2*Math.PI*9*time)+3.5*Math.sin(2*Math.PI*17*time+.7)),dy=vibrationAmplitude*(7*Math.sin(2*Math.PI*11*time+1.2)+2.5*Math.sin(2*Math.PI*19*time)),angle=vibrationAmplitude*.4*Math.sin(2*Math.PI*7*time);
+ $('vibration-world').setAttribute('transform',`translate(${dx} ${dy}) rotate(${angle} 785 345)`);
+
+}
+document.querySelectorAll('.stage').forEach(b=>b.addEventListener('click',()=>setStage(Number(b.dataset.stage))));
+function tick(now){if(last&&playing&&!document.hidden){const dt=Math.min(now-last,100);elapsed+=dt;motionTime+=dt;if(elapsed>=duration)setStage((index+1)%stages.length);else render();}last=now;requestAnimationFrame(tick);}
+window.workspaceAnimation={select:setStage,pause:()=>{playing=false;},seek:ms=>{elapsed=Math.max(0,Math.min(duration,ms));motionTime=elapsed;render();},getState:()=>({index,elapsed,playing,isolationPhase,vibrationAmplitude,specimenCount:$('sample-world').querySelectorAll('[data-specimen]').length,box:stages[index].box,duration})};
+setStage(0);requestAnimationFrame(tick);
+if(parent!==window){const content=document.querySelector('main');const sendHeight=()=>parent.postMessage({type:'workspace-animation-height',height:Math.ceil(content.getBoundingClientRect().height+2)},'*');new ResizeObserver(sendHeight).observe(content);sendHeight();document.fonts.ready.then(sendHeight);}
+})();
+</script>
+</body></html>

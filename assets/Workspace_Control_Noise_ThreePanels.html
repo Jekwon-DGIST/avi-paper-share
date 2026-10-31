@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>회전 제어의 잡음·병진 응답·구동력 비교</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#203e60;font:15px/1.7 'Malgun Gothic','Segoe UI',sans-serif}main{max-width:1180px;margin:auto;padding:20px 22px 16px}.note{font-size:12px;color:#8b7758;margin:0 0 12px}.control{background:#f1f5fa;padding:14px 17px;border-radius:9px}.control-title{display:flex;justify-content:space-between;font-size:17px;font-weight:600;gap:12px}.control output{font-family:Consolas,monospace}.slider-row{display:flex;align-items:center;gap:12px;margin-top:10px;font-size:12px;color:#73869a}.slider-row input{flex:1;min-width:0;accent-color:#315f91;cursor:pointer}.presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.presets button{font:13px 'Malgun Gothic',sans-serif;border:1px solid #c6d5e4;border-radius:6px;background:#fff;color:#315f91;padding:7px 11px;cursor:pointer}.presets button.active{background:#315f91;color:#fff;border-color:#315f91}.panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}.panel{border:1px solid #dce4ed;border-radius:9px;overflow:hidden;min-width:0}.panel header{padding:13px 14px 9px;border-bottom:1px solid #e4eaf1}.panel h2{margin:0;font-size:17px}.panel header p{margin:2px 0 0;font-size:12px;color:#8292a3}.panel svg{display:block;width:100%;height:auto}.metric{margin:0 13px 10px;padding:10px 11px;background:#f5f8fb;border-radius:6px;min-height:76px}.metric-label{font-size:11px;color:#73859a}.metric-value{font:600 20px/1.6 Consolas,monospace;color:#31577e}.metric-value small{font:11px 'Malgun Gothic',sans-serif;color:#73859a}.wave{margin:0 12px 12px}.wave-label{font-size:11px;color:#7e90a3;margin-bottom:3px}.wave svg{background:#fafbfd;border-radius:4px}.caution{font-size:11px;color:#8c7b64;padding:0 13px 11px;margin:0}details{font-size:12px;color:#728398;margin-top:14px}summary{cursor:pointer}details p{margin:5px 0}button:focus-visible,input:focus-visible{outline:3px solid #b58e43;outline-offset:3px}@media(max-width:760px){main{padding:14px 10px}.panels{grid-template-columns:1fr}.panel svg.scene{max-height:300px}.panel header p{font-size:12px}.control-title{font-size:15px}.presets button{font-size:12px}.metric{min-height:0}}
+</style></head><body><main>
+<div class="control">
+<div class="control-title"><label for="gain">작업 영역 범위</label><output id="gain-value" for="gain">K = 29.0</output></div>
+<div class="slider-row"><span>약하게</span><input id="gain" type="range" min="0" max="120" step="0.5" value="29"><span>강하게</span></div>
+<div class="presets"><button id="task-preset">작업 영역 기준</button><button id="wide-preset">넓은 영역 기준</button></div>
+</div>
+<section class="panels" aria-label="제어 강도에 따른 잡음과 구동 전류">
+<article class="panel">
+<header><h2>① Noise에 대한 민감성 증가</h2><p>현미경 시야의 잔떨림</p></header>
+<svg class="scene" viewBox="0 0 360 300" role="img" aria-label="센서 잡음 성분만으로 흔들리는 확대 영상">
+<defs><clipPath id="scope-clip"><circle cx="180" cy="147" r="103"/></clipPath></defs>
+<circle cx="180" cy="147" r="112" fill="#f5f8fc" stroke="#d7e2ec" stroke-width="2"/>
+<g clip-path="url(#scope-clip)"><circle cx="180" cy="147" r="103" fill="#fff"/>
+<g id="noise-image" fill="none" stroke="#526d85" stroke-width="5">
+<path d="M118 82h20M118 82v20M242 82h-20M242 82v20M118 212h20M118 212v-20M242 212h-20M242 212v-20"/>
+<rect x="156" y="110" width="48" height="32" stroke="#315f91" stroke-width="2.5"/>
+<path d="M148 161H212M148 168H212" stroke="#7d92a6" stroke-width="2"/>
+<text x="180" y="198" text-anchor="middle" fill="#203e60" stroke="none" font-family="Consolas,monospace" font-size="20">AVI LAB</text>
+</g></g>
+<circle cx="180" cy="147" r="103" fill="none" stroke="#315f91" stroke-width="1.8"/>
+<path d="M169 147H191M180 136V158" stroke="#bd9459" stroke-width="1"/>
+<text x="180" y="282" text-anchor="middle" fill="#8393a4" font-family="Malgun Gothic,sans-serif" font-size="12">센서 잡음에 의한 응답만 표시</text>
+</svg>
+</article>
+
+<article class="panel">
+<header><h2>② 각 구동기의 Control effort 증가</h2><p>구동 전류의 시간 응답</p></header>
+<svg class="scene" viewBox="0 0 360 300" role="img" aria-label="제어 강도에 따라 진폭이 달라지는 설명용 구동 전류 그래프">
+<defs><clipPath id="current-clip"><rect x="48" y="65" width="286" height="174"/></clipPath></defs>
+<rect x="48" y="65" width="286" height="174" rx="4" fill="#fafbfd"/>
+<g stroke="#e3eaf1" stroke-width="1"><path d="M48 77H334M48 152H334M48 227H334M105 65V239M162 65V239M219 65V239M276 65V239"/></g>
+<path d="M48 65V239H334" fill="none" stroke="#a5b6c8" stroke-width="1.2"/>
+<path d="M48 152H334" stroke="#b6c5d4" stroke-width="1"/>
+<g font-family="Consolas,monospace" font-size="11" fill="#8194a8" text-anchor="end"><text x="40" y="81">2</text><text x="40" y="156">0</text><text x="40" y="231">−2</text></g>
+<g font-family="Malgun Gothic,sans-serif" font-size="12" fill="#73899f"><text x="48" y="48">전류 [A]</text><text x="334" y="261" text-anchor="end">시간 →</text></g>
+<path id="current-wave" clip-path="url(#current-clip)" fill="none" stroke="#986b97" stroke-width="1.8"/>
+<text x="180" y="285" text-anchor="middle" fill="#8393a4" font-family="Malgun Gothic,sans-serif" font-size="11">설명용 환산 전류 · 동일한 세로축 배율</text>
+</svg>
+</article>
+</section>
+</main><script>
+(()=>{
+const $=id=>document.getElementById(id),a=2.8,wg=4.8,wn=80,gA=.015,nA=.009,target=.00035,b=.25,forceConstant=1;
+function transfer(k,w){const D=(a+k)**2+w*w;return{S:{re:(a*(a+k)+w*w)/D,im:w*k/D},T:{re:k*(a+k)/D,im:-k*w/D}};}
+const mag=v=>Math.hypot(v.re,v.im),value=(v,w,t)=>v.re*Math.sin(w*t)+v.im*Math.cos(w*t);
+function responses(k){const g=transfer(k,wg).S,noise=transfer(k,wn),ground=.19*gA*mag(g)/Math.SQRT2,n=.19*nA*mag(noise.T)/Math.SQRT2;const torqueRms=k*Math.hypot(gA*mag(g),nA*mag(noise.S))/Math.SQRT2;return{k,g,nT:noise.T,nS:noise.S,ground,noise:n,total:Math.hypot(ground,n),translation:.12*gA*mag(g)/Math.SQRT2,forceRms:torqueRms/(2*b),wideGround:.42*gA*mag(g)/Math.SQRT2};}
+function requiredGain(lever){const maxS=target*Math.SQRT2/(lever*gA);return Math.max(0,Math.sqrt((a*a+wg*wg)/(maxS*maxS)-wg*wg)-a);}
+const taskGain=requiredGain(.19),wideGain=requiredGain(.42);let current=responses(29),time=0,last=0,playing=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+function update(k){current=responses(k);$('gain').value=k;$('gain-value').textContent='K = '+k.toFixed(1);$('task-preset').classList.toggle('active',Math.abs(k-taskGain)<.6);$('wide-preset').classList.toggle('active',Math.abs(k-wideGain)<.6);draw();}
+function spring(x,y){let d=`M${x} ${y}v5`;for(let i=1;i<=8;i++)d+=`L${x+(i%2?6:-6)} ${y+5+(245-y-5)*i/9}`;return d+`L${x} 245V253`;}
+function signals(t){const qg=gA*value(current.g,wg,t),qn=-nA*value(current.nT,wn,t),torque=-current.k*(qg+nA*value(current.nS,wn,t));return{qg,qn,force:torque/(2*b)};}
+function draw(){
+ const v=signals(time);$('noise-image').setAttribute('transform',`translate(0 ${.18*v.qn*850*16})`);
+ const points=[];for(let i=0;i<=420;i++){const sample=signals(time-1.25+1.25*i/420),amps=sample.force/forceConstant;points.push(`${48+286*i/420},${152-amps*37.5}`);}$('current-wave').setAttribute('d','M'+points.join('L'));
+}
+$('gain').addEventListener('input',()=>update(Number($('gain').value)));$('task-preset').addEventListener('click',()=>update(Math.ceil(taskGain*2)/2));$('wide-preset').addEventListener('click',()=>update(Math.ceil(wideGain*2)/2));
+function tick(now){if(last&&playing&&!document.hidden){time+=Math.min(now-last,60)/1000;draw();}last=now;requestAnimationFrame(tick);}
+window.controlTradeoff={setGain:update,responses,getState:()=>({...current,taskGain,wideGain,time}),pause:()=>{playing=false;},seek:t=>{time=t;draw();}};
+update(Math.ceil(taskGain*2)/2);requestAnimationFrame(tick);
+if(parent!==window){const main=document.querySelector('main');const resize=()=>parent.postMessage({type:'workspace-animation-height',height:Math.ceil(main.getBoundingClientRect().height+2)},'*');new ResizeObserver(resize).observe(main);resize();document.fonts.ready.then(resize);}
+})();
+</script></body></html>
