@@ -165,7 +165,7 @@ footer{margin-top:18px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 .q-definition-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;align-items:center}.q-definition-math{min-width:0}.q-definition-math .eq{margin:0!important}.q-diagonal-figure{margin:0;background:#fff;padding:12px;border-radius:6px;min-width:0}.q-diagonal-figure img{display:block;width:100%;height:auto}.q-diagonal-figure figcaption{text-align:center;color:#435b75;font-size:13px;line-height:1.7;margin-top:8px}@media(max-width:1050px){.q-definition-layout{grid-template-columns:1fr}}
 </style>
-<meta name="avi-build" content="20261101T123720Z">
+<meta name="avi-build" content="20261101T123759Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -397,10 +397,12 @@ O_{m,[k]}=K_{m,[k]}S_{m,[k]}
 \qquad |P_{m,[k]}(j\omega)|>0.
 \]</div>
 <p>Sensitivity의 크기가 \(|S_{m,[k]}|=\overline s_k\)이면, <strong>Control effort의 크기</strong>는 다음 범위에 놓인다.</p>
-<div class="eq" id="modal-control-effort-range">\[
+<div class="eq brace-equation" id="modal-control-effort-range">\[
+\underbrace{
 \frac{|1-\overline s_k|}{|P_{m,[k]}(j\omega)|}
 \leq |O_{m,[k]}|
-\leq\frac{1+\overline s_k}{|P_{m,[k]}(j\omega)|}.
+\leq\frac{1+\overline s_k}{|P_{m,[k]}(j\omega)|}
+}_{\mathclap{P_m\text{이 클 수록 Control effort가 작다.}}}.
 \]</div>
 <p>이 상한을 고려하여, <strong>플랜트 크기가 큰 모드에 더 강한 진동 억제</strong>를 배분한다.</p>
 </div>
