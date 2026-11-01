@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T094503Z">
+<meta name="avi-build" content="20261101T094918Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -367,29 +367,6 @@ T_{GW,[d,j]}^{\mathrm{cl}}(\boldsymbol r_i,j\omega)
 
 
 <div id="modal-transfer-introduction">
-<p><strong>작업 위치의 전달률</strong>을 Modal space (CPD 디커플링 이후의 좌표 공간)의 전달률과 변환행렬의 곱으로 표현한다.</p>
-<div class="eq brace-equation" id="modal-transfer-coordinate-relation">\[
-\begin{aligned}
-\boldsymbol T_{GW}^{\mathrm{cl}}(\boldsymbol r_i,j\omega)
-&=\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}\boldsymbol T_{GM}^{\mathrm{cl}}(j\omega),\\[12pt]
-\boldsymbol T_{GM}^{\mathrm{cl}}(j\omega)
-&=\underbrace{\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{\mathrm{cl}}(j\omega)}_{\mathclap{\substack{\text{지면 입력에서 모달 운동으로의}\\\text{폐루프 전달률}}}}.
-\end{aligned}
-\]</div>
-<p>모달 운동을 후보 위치의 운동으로 변환하는 행렬을 \(\boldsymbol C_i\)로 둔다.</p>
-<div class="eq brace-equation" id="modal-position-transform">\[
-\begin{aligned}
-\boldsymbol T_{GW}^{\mathrm{cl}}(\boldsymbol r_i,j\omega)
-&=\boldsymbol C_i\boldsymbol T_{GM}^{\mathrm{cl}}(j\omega),\\[12pt]
-\boldsymbol C_i
-&=\underbrace{\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}}_{\mathclap{\substack{\text{모달 운동에서 후보 위치 운동으로의}\\\text{변환행렬}}}}.
-\end{aligned}
-\]</div>
-<p>\(\boldsymbol C_i\)는 후보 위치와 CPD 변환으로 정해지는 <strong>실수 상수 행렬</strong>이다. 지면 입력에서 모달 운동으로의 <strong>passive 전달률</strong>은 다음과 같다.</p>
-<div class="eq brace-equation" id="modal-passive-transfer">\[
-\boldsymbol T_{GM}^{p}(j\omega)
-=\underbrace{\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{p}(j\omega)}_{\mathclap{\substack{\text{지면 입력에서 모달 운동으로의}\\\text{passive 전달률}}}}.
-\]</div>
 <p>각 모드의 폐루프 전달률은 <strong>모드별 Sensitivity와 passive 전달률의 곱</strong>으로 표현한다.</p>
 <div class="eq brace-equation" id="modal-sensitivity-factorization">\[
 \underbrace{\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}(j\omega)}_{\mathclap{\substack{\text{모드 }k\text{의}\\\text{폐루프 전달률}}}}
