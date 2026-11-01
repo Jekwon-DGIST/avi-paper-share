@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T073933Z">
+<meta name="avi-build" content="20261101T074413Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -379,11 +379,23 @@ Q_{[k,j]}=C_{i,[d,k]}C_{i,[d,j]}\boldsymbol T_{GM,[k,:]}^{p}\bigl(\boldsymbol T_
 \]</div>
 
 
-<div id="modal-inverse-magnitude-allocation">
-<p><strong>모달 플랜트의 크기</strong>가 큰 모드에 <strong>더 강한 진동 억제</strong>를 요구하도록, 각 항의 허용량을 플랜트 크기의 역수로 배분한다.</p>
-<div class="eq">\[
-p_k=|P_{m,[k]}(j\omega)|>0,\qquad k=1,\ldots,6.
+<div id="modal-control-effort-bounds">
+<p><strong>Control effort의 상한을 고려하여 모드별 진동 억제 부담을 배분한다.</strong> 모드별 Control effort 전달함수와 플랜트 크기를 다음과 같이 둔다.</p>
+<div class="eq" id="modal-control-effort-definition">\[
+O_{m,[k]}=K_{m,[k]}S_{m,[k]}
+=\frac{1-S_{m,[k]}}{P_{m,[k]}},
+\qquad p_k=|P_{m,[k]}(j\omega)|>0.
 \]</div>
+<p>Sensitivity가 \(|S_{m,[k]}|\leq\overline s_k\)를 만족하면, <strong>Control effort의 크기</strong>는 다음 범위에 놓인다.</p>
+<div class="eq" id="modal-control-effort-range">\[
+\frac{\max\{0,\,1-\overline s_k\}}{p_k}
+\leq |O_{m,[k]}|
+\leq\frac{1+\overline s_k}{p_k}.
+\]</div>
+<p>이 상한을 고려하여, <strong>플랜트 크기가 큰 모드에 더 강한 진동 억제</strong>를 배분한다.</p>
+</div>
+<div id="modal-inverse-magnitude-allocation">
+<p>각 항의 허용량을 <strong>플랜트 크기의 역수</strong>로 배분한다.</p>
 <p>배분한 허용량의 합이 목표 전달률의 제곱이 되도록, 정규화 값을 다음과 같이 정의한다.</p>
 <div class="eq" id="modal-allocation-normalizer">\[
 P_{\mathrm{mag,total}}
@@ -415,6 +427,16 @@ Q_{[k,k]}|S_{m,[k]}|^2
 
 
 <p>모든 후보 위치와 요구 방향, 대상 주파수에서 위 조건을 적용하면 작업 영역 전체의 목표 전달률을 만족시키는 <strong>충분조건</strong>이 된다.</p>
+<div id="modal-control-effort-allocation">
+<p>앞의 교차항에 대한 개별 Sensitivity 상한을 대입하면, <strong>Control effort의 상한</strong>은 다음과 같다.</p>
+<div class="eq" id="modal-control-effort-allocated-bound">\[
+|O_{m,[k]}|
+\leq\frac{1}{p_k}
++\frac{|R(j\omega)|}{p_k^2\sqrt{2|Q_{[k,j]}|P_{\mathrm{mag,total}}}},
+\qquad |Q_{[k,j]}|>0.
+\]</div>
+<p><strong>목표 전달률을 만족시키면서, Control effort 상한에 플랜트 크기가 반영되도록 배분한다.</strong> 위 상한은 대각항과 나머지 교차항의 조건을 함께 적용해도 유효하다.</p>
+</div>
 </div>
 </div>
 <section class="contribution-callout" id="panel-c2" aria-labelledby="modal-allocation-title">
