@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T095902Z">
+<meta name="avi-build" content="20261101T100048Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -356,6 +356,21 @@ footer{margin-top:18px}
 \left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
 =\sqrt{\sum_{k=1}^{6}Q_{[k,k]}|S_{m,[k]}|^2+\vphantom{2\sum_{k&lt;j}\operatorname{Re}\!\left\{Q_{[k,j]}S_{m,[k]}\overline{S_{m,[j]}}\right\}}\smash{\underbrace{2\sum_{k&lt;j}\operatorname{Re}\!\left\{Q_{[k,j]}S_{m,[k]}\overline{S_{m,[j]}}\right\}}_{\displaystyle \leq2|Q_{[k,j]}|\,|S_{m,[k]}|\,|S_{m,[j]}|}}}.
 \]</div>
+<p>\(Q_{[k,j]}\)는 <strong>후보 위치의 변환계수와 passive 모달 전달률</strong>로 정해지는 계수다. 대각항은 각 모드의 단독 기여를, 비대각항은 두 모드 사이의 교차 기여를 결정한다.</p>
+<div class="eq" id="modal-q-definition">\[
+\begin{aligned}
+Q_{[k,j]}
+&=C_{i,[d,k]}C_{i,[d,j]}
+\boldsymbol T_{GM,[k,:]}^{p}(j\omega)
+\bigl(\boldsymbol T_{GM,[j,:]}^{p}(j\omega)\bigr)^{\mathsf H},
+\qquad k,j\in\{1,\ldots,6\},\\[12pt]
+\boldsymbol C_i
+&=\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1},\\[12pt]
+\boldsymbol T_{GM}^{p}(j\omega)
+&=\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{p}(j\omega).
+\end{aligned}
+\]</div>
+
 <p>이를 위 식의 교차항에 대입하면, <strong>작업 위치의 전달률 상한</strong>은 다음과 같다.</p>
 <div class="eq" id="modal-norm-upper-bound">\[
 \left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2\leq\sqrt{\sum_{k=1}^{6}Q_{[k,k]}|S_{m,[k]}|^2+2\sum_{k&lt;j}|Q_{[k,j]}|\,|S_{m,[k]}|\,|S_{m,[j]}|}\leq |R(j\omega)|.
