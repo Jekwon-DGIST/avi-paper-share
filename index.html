@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T073045Z">
+<meta name="avi-build" content="20261101T073553Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -415,6 +415,16 @@ Q_{[k,k]}|S_{m,[k]}|^2
 \leq\frac{|R(j\omega)|^2}{P_{\mathrm{mag,total}}}\frac{1}{p_kp_j},
 \qquad 1\leq k&lt;j\leq6.
 \]</div>
+<p>교차항의 조건을 만족시키도록, <strong>각 모드의 Sensitivity 상한</strong>을 다음과 같이 정한다.</p>
+<div class="eq" id="modal-cross-bound-k">\[
+|S_{m,[k]}|
+\leq\frac{|R(j\omega)|}{p_k\sqrt{2|Q_{[k,j]}|P_{\mathrm{mag,total}}}}.
+\]</div>
+<div class="eq" id="modal-cross-bound-j">\[
+|S_{m,[j]}|
+\leq\frac{|R(j\omega)|}{p_j\sqrt{2|Q_{[k,j]}|P_{\mathrm{mag,total}}}}.
+\]</div>
+<p>두 상한을 곱하면 앞의 교차항 조건을 만족한다. 이는 교차항 조건을 보장하는 <strong>개별 충분조건</strong>이며, \(Q_{[k,j]}=0\)인 교차항은 제약에서 제외한다.</p>
 <p><strong>모든 대각항과 교차항의 조건을 만족하면</strong>, 이들을 합하여 목표 전달률을 만족한다.</p>
 <div class="eq" id="modal-allocation-guarantee">\[
 \begin{aligned}
