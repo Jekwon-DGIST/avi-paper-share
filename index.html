@@ -165,7 +165,7 @@ footer{margin-top:18px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 .q-definition-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;align-items:center}.q-definition-math{min-width:0}.q-definition-math .eq{margin:0!important}.q-diagonal-figure{margin:0;background:#fff;padding:12px;border-radius:6px;min-width:0}.q-diagonal-figure img{display:block;width:100%;height:auto}.q-diagonal-figure figcaption{text-align:center;color:#435b75;font-size:13px;line-height:1.7;margin-top:8px}@media(max-width:1050px){.q-definition-layout{grid-template-columns:1fr}}
 </style>
-<meta name="avi-build" content="20261101T115401Z">
+<meta name="avi-build" content="20261101T122038Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -372,15 +372,16 @@ Q_{d,[k,k]}(\boldsymbol r_i)
 &=\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{p}(j\omega).
 \end{aligned}
 \]</div></div>
-<figure class="q-diagonal-figure"><a href="assets/Workspace_Q_Diagonal_3_25Hz.gif?v=frequency" target="_blank" rel="noopener"><img src="assets/Workspace_Q_Diagonal_3_25Hz.gif?v=frequency" alt="3~25 Hz를 5초 동안 순차적으로 변화시키며 여섯 CPD 모드의 XYZ방향 Q 대각항을 두께가 있는 회색 상판 위 화살표로 표시한 애니메이션"></a><figcaption>화살표는 <strong>세 방향의 기여로 정해지는 크기</strong>와 <strong>위치 변환행렬 \(\boldsymbol C_i\)에서 얻은 방향</strong>을 결합하여 그린다.</figcaption>
+<figure class="q-diagonal-figure">
+<figcaption>화살표는 <strong>스칼라 계수</strong>와 <strong>위치 변환행렬 \(\boldsymbol C_i\)의 열벡터</strong>를 곱하여 그린다.</figcaption>
 <div class="eq brace-equation" id="q-arrow-magnitude-direction">\[
-\begin{aligned}
-\boldsymbol a_k(\boldsymbol r_i)&=
-\underbrace{\sqrt{Q_{X,[k,k]}(\boldsymbol r_i)+Q_{Y,[k,k]}(\boldsymbol r_i)+Q_{Z,[k,k]}(\boldsymbol r_i)}}_{\mathclap{\text{화살표의 크기}}}
-\\[12pt]
-&\quad\times\underbrace{\frac{\begin{bmatrix}C_{i,[X,k]}\\C_{i,[Y,k]}\\C_{i,[Z,k]}\end{bmatrix}}{\sqrt{C_{i,[X,k]}^2+C_{i,[Y,k]}^2+C_{i,[Z,k]}^2}}}_{\mathclap{\substack{\boldsymbol C_i\text{의 }k\text{번째 열에서 얻은}\\\text{단위 방향 벡터}}}}.
-\end{aligned}
-\]</div></figure>
+\boldsymbol a_k(\boldsymbol r_i)
+=
+\underbrace{\frac{\sqrt{Q_{X,[k,k]}(\boldsymbol r_i)+Q_{Y,[k,k]}(\boldsymbol r_i)+Q_{Z,[k,k]}(\boldsymbol r_i)}}{\sqrt{C_{i,[X,k]}^2+C_{i,[Y,k]}^2+C_{i,[Z,k]}^2}}}_{\mathclap{\text{스칼라 계수}}}
+\underbrace{\begin{bmatrix}C_{i,[X,k]}\\C_{i,[Y,k]}\\C_{i,[Z,k]}\end{bmatrix}}_{\mathclap{\substack{\text{방향을 나타내는}\\\boldsymbol C_i\text{의 }k\text{번째 열벡터}}}}.
+\]</div>
+<a href="assets/Workspace_Q_Diagonal_3_25Hz.gif?v=frequency" target="_blank" rel="noopener"><img src="assets/Workspace_Q_Diagonal_3_25Hz.gif?v=frequency" alt="3~25 Hz를 5초 동안 순차적으로 변화시키며 여섯 CPD 모드의 XYZ방향 Q 대각항을 두께가 있는 회색 상판 위 화살표로 표시한 애니메이션"></a>
+</figure>
 </div>
 
 <p>이를 위 식의 교차항에 대입하면, <strong>작업 위치의 전달률 상한</strong>은 다음과 같다.</p>
