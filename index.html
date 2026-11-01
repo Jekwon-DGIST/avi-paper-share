@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T090235Z">
+<meta name="avi-build" content="20261101T090545Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -301,10 +301,12 @@ footer{margin-top:18px}
 \end{aligned}
 \]</div>
 <p><strong>각 방향에서 내부 위치의 진동 크기</strong>는 <strong>같은 방향의 후보 위치 진동 크기 중 최대값 이하</strong>이다.</p>
-<div class="eq">\[
+<div class="eq brace-equation" id="workspace-directional-vibration-bound">\[
+\underbrace{
 \left|q_{w,[d]}(\boldsymbol r)\right|
 \leq\sum_{i\in\mathcal I}\lambda_i\left|q_{w,[d]}(\boldsymbol r_i)\right|
-\leq\max_{i\in\mathcal I}\left|q_{w,[d]}(\boldsymbol r_i)\right|,
+\leq\max_{i\in\mathcal I}\left|q_{w,[d]}(\boldsymbol r_i)\right|
+}_{\mathclap{\text{작업 영역 내부 점의 진동은 선별한 후보 위치에서 발생한 max 값보다 항상 작음.}}},
 \qquad d\in\{X,Y,Z\}.
 \]</div>
 <p><strong>지면 입력</strong>에서 <strong>작업 위치의 진동</strong>으로 <strong>전달되는 관계</strong>를 다음과 같이 정의한다.</p>
