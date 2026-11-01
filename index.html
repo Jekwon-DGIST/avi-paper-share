@@ -165,7 +165,7 @@ footer{margin-top:18px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 .q-definition-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;align-items:center}.q-definition-math{min-width:0}.q-definition-math .eq{margin:0!important}.q-diagonal-figure{margin:0;background:#fff;padding:12px;border-radius:6px;min-width:0}.q-diagonal-figure img{display:block;width:100%;height:auto}.q-diagonal-figure figcaption{text-align:center;color:#435b75;font-size:13px;line-height:1.7;margin-top:8px}@media(max-width:1050px){.q-definition-layout{grid-template-columns:1fr}}
 </style>
-<meta name="avi-build" content="20261101T124135Z">
+<meta name="avi-build" content="20261101T124230Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -384,8 +384,8 @@ Q_{d,[k,k]}(\boldsymbol r_i)
 </div>
 
 <p>이를 위 식의 교차항에 대입하면, <strong>작업 위치의 전달률 상한</strong>은 다음과 같다.</p>
-<div class="eq" id="modal-norm-upper-bound">\[
-\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2\leq\sqrt{\sum_{k=1}^{6}Q_{d,[k,k]}(\boldsymbol r_i)|S_{m,[k]}|^2+2\sum_{k&lt;j}|Q_{d,[k,j]}(\boldsymbol r_i)|\,|S_{m,[k]}|\,|S_{m,[j]}|}\leq |R(j\omega)|.
+<div class="eq brace-equation" id="modal-norm-upper-bound">\[
+\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2\leq\underbrace{\sqrt{\sum_{k=1}^{6}Q_{d,[k,k]}(\boldsymbol r_i)|S_{m,[k]}|^2+2\sum_{k&lt;j}|Q_{d,[k,j]}(\boldsymbol r_i)|\,|S_{m,[k]}|\,|S_{m,[j]}|}\leq |R(j\omega)|}_{\mathclap{\substack{\text{이 부등식이 만족되도록 Sensitivity를 설계하는게 목적}\\\text{이 부등식 만족 시 작업 영역에 요구 성능을 만족함}}}}.
 \]</div>
 
 
