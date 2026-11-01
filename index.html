@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T094059Z">
+<meta name="avi-build" content="20261101T094503Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -351,12 +351,17 @@ footer{margin-top:18px}
 \left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
 =\sqrt{\left|T_{GW,[d,1]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2+\cdots+\left|T_{GW,[d,6]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2}.
 \]</div>
-<p>각 원소 \(T_{GW,[d,j]}^{\mathrm{cl}}\)은 <strong>여섯 모드의 Sensitivity를 이용한 기여 합</strong>으로 표현한다. \(j\)는 지면 입력, \(k\)는 모드의 인덱스다.</p>
-<div class="eq" id="modal-transfer-entry-sensitivity">\[
+<p>각 원소 \(T_{GW,[d,j]}^{\mathrm{cl}}\)을 <strong>앞의 블록다이어그램과 전달률 식에 사용한 행렬</strong>로 풀어 쓴다. \(j\)는 지면 입력, \(k\)는 모드의 인덱스다.</p>
+<div class="eq brace-equation" id="modal-transfer-entry-sensitivity">\[
 \begin{aligned}
 T_{GW,[d,j]}^{\mathrm{cl}}(\boldsymbol r_i,j\omega)
-&=\sum_{k=1}^{6}C_{i,[d,k]}T_{GM,[k,j]}^{\mathrm{cl}}(j\omega)\\
-&=\sum_{k=1}^{6}C_{i,[d,k]}S_{m,[k]}(j\omega)T_{GM,[k,j]}^{p}(j\omega).
+&=\sum_{k=1}^{6}
+\underbrace{\left[\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}\right]_{[d,k]}}_{\mathclap{C_{i,[d,k]}}}
+\underbrace{\left[\boldsymbol T_y^{\mathrm{cpd}}\left(\boldsymbol I+\boldsymbol P(j\omega)\boldsymbol T_u^{\mathrm{cpd}}\boldsymbol C_m(j\omega)\boldsymbol T_y^{\mathrm{cpd}}\right)^{-1}\boldsymbol T_{GC}^{p}(j\omega)\right]_{[k,j]}}_{\mathclap{T_{GM,[k,j]}^{\mathrm{cl}}(j\omega)}}\\[24pt]
+&=\sum_{k=1}^{6}
+\underbrace{\left[\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}\right]_{[d,k]}}_{\mathclap{C_{i,[d,k]}}}
+\underbrace{\left[\left(\boldsymbol I+\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol P(j\omega)\boldsymbol T_u^{\mathrm{cpd}}\boldsymbol C_m(j\omega)\right)^{-1}\right]_{[k,k]}}_{\mathclap{S_{m,[k]}(j\omega)}}
+\underbrace{\left[\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{p}(j\omega)\right]_{[k,j]}}_{\mathclap{T_{GM,[k,j]}^{p}(j\omega)}}.
 \end{aligned}
 \]</div>
 
