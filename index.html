@@ -165,7 +165,7 @@ footer{margin-top:18px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 .q-definition-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;align-items:center}.q-definition-math{min-width:0}.q-definition-math .eq{margin:0!important}.q-diagonal-figure{margin:0;background:#fff;padding:12px;border-radius:6px;min-width:0}.q-diagonal-figure img{display:block;width:100%;height:auto}.q-diagonal-figure figcaption{text-align:center;color:#435b75;font-size:13px;line-height:1.7;margin-top:8px}@media(max-width:1050px){.q-definition-layout{grid-template-columns:1fr}}
 </style>
-<meta name="avi-build" content="20261101T114514Z">
+<meta name="avi-build" content="20261101T114732Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -357,15 +357,15 @@ footer{margin-top:18px}
 \left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
 =\sqrt{\sum_{k=1}^{6}Q_{d,[k,k]}(\boldsymbol r_i)|S_{m,[k]}|^2+\vphantom{2\sum_{k&lt;j}\operatorname{Re}\!\left\{Q_{d,[k,j]}(\boldsymbol r_i)S_{m,[k]}\overline{S_{m,[j]}}\right\}}\smash{\underbrace{2\sum_{k&lt;j}\operatorname{Re}\!\left\{Q_{d,[k,j]}(\boldsymbol r_i)S_{m,[k]}\overline{S_{m,[j]}}\right\}}_{\displaystyle \leq2|Q_{d,[k,j]}(\boldsymbol r_i)|\,|S_{m,[k]}|\,|S_{m,[j]}|}}}.
 \]</div>
-<p>\(Q_{d,[k,j]}(\boldsymbol r_i)\)는 <strong>후보 위치의 변환계수와 passive 모달 전달률</strong>로 정해지는 계수다. 대각항은 각 모드의 단독 기여를, 비대각항은 두 모드 사이의 교차 기여를 결정한다.</p>
+<p>\(Q_{d,[k,k]}(\boldsymbol r_i)\)는 <strong>후보 위치의 변환계수와 passive 모달 전달률</strong>로 정해지는 계수로, <strong>모드 \(k\)가 \(d\) 방향에 기여하는 크기</strong>를 나타낸다. 대각항의 예시는 다음과 같다.</p>
 <div class="q-definition-layout" id="q-definition-visualization">
 <div class="q-definition-math"><div class="eq" id="modal-q-definition">\[
 \begin{aligned}
-Q_{d,[k,j]}(\boldsymbol r_i)
-&=C_{i,[d,k]}C_{i,[d,j]}
+Q_{d,[k,k]}(\boldsymbol r_i)
+&=C_{i,[d,k]}^2
 \boldsymbol T_{GM,[k,:]}^{p}(j\omega)
-\bigl(\boldsymbol T_{GM,[j,:]}^{p}(j\omega)\bigr)^{\mathsf H},
-\qquad k,j\in\{1,\ldots,6\},\\[12pt]
+\bigl(\boldsymbol T_{GM,[k,:]}^{p}(j\omega)\bigr)^{\mathsf H},
+\qquad k\in\{1,\ldots,6\},\\[12pt]
 \boldsymbol C_i
 &=\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1},\\[12pt]
 \boldsymbol T_{GM}^{p}(j\omega)
