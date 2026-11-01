@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T094918Z">
+<meta name="avi-build" content="20261101T095902Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -350,40 +350,6 @@ footer{margin-top:18px}
 <div class="eq">\[
 \left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
 =\sqrt{\left|T_{GW,[d,1]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2+\cdots+\left|T_{GW,[d,6]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2}.
-\]</div>
-<p>각 원소 \(T_{GW,[d,j]}^{\mathrm{cl}}\)을 <strong>앞의 블록다이어그램과 전달률 식에 사용한 행렬</strong>로 풀어 쓴다. \(j\)는 지면 입력, \(k\)는 모드의 인덱스다.</p>
-<div class="eq brace-equation" id="modal-transfer-entry-sensitivity">\[
-\begin{aligned}
-T_{GW,[d,j]}^{\mathrm{cl}}(\boldsymbol r_i,j\omega)
-&=\sum_{k=1}^{6}
-\underbrace{\left[\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}\right]_{[d,k]}}_{\mathclap{C_{i,[d,k]}}}
-\underbrace{\left[\boldsymbol T_y^{\mathrm{cpd}}\left(\boldsymbol I+\boldsymbol P(j\omega)\boldsymbol T_u^{\mathrm{cpd}}\boldsymbol C_m(j\omega)\boldsymbol T_y^{\mathrm{cpd}}\right)^{-1}\boldsymbol T_{GC}^{p}(j\omega)\right]_{[k,j]}}_{\mathclap{T_{GM,[k,j]}^{\mathrm{cl}}(j\omega)}}\\[24pt]
-&=\sum_{k=1}^{6}
-\underbrace{\left[\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}\right]_{[d,k]}}_{\mathclap{C_{i,[d,k]}}}
-\underbrace{\left[\left(\boldsymbol I+\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol P(j\omega)\boldsymbol T_u^{\mathrm{cpd}}\boldsymbol C_m(j\omega)\right)^{-1}\right]_{[k,k]}}_{\mathclap{S_{m,[k]}(j\omega)}}
-\underbrace{\left[\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{p}(j\omega)\right]_{[k,j]}}_{\mathclap{T_{GM,[k,j]}^{p}(j\omega)}}.
-\end{aligned}
-\]</div>
-
-
-<div id="modal-transfer-introduction">
-<p>각 모드의 폐루프 전달률은 <strong>모드별 Sensitivity와 passive 전달률의 곱</strong>으로 표현한다.</p>
-<div class="eq brace-equation" id="modal-sensitivity-factorization">\[
-\underbrace{\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}(j\omega)}_{\mathclap{\substack{\text{모드 }k\text{의}\\\text{폐루프 전달률}}}}
-=\underbrace{S_{m,[k]}(j\omega)}_{\mathclap{\substack{\text{모드 }k\text{의}\\\text{Sensitivity}}}}
-\underbrace{\boldsymbol T_{GM,[k,:]}^{p}(j\omega)}_{\mathclap{\substack{\text{모드 }k\text{의}\\\text{passive 전달률}}}}.
-\]</div>
-<p>\([k,:]\)는 모드 \(k\), \([d,:]\)는 출력 방향 \(d\)에 대한 <strong>여섯 지면 입력의 전달률을 모은 행</strong>을 뜻한다. 따라서 출력 방향 \(d\)의 전달률은 <strong>여섯 모드의 기여 합</strong>이다.</p>
-<div class="eq">\[
-\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i,j\omega)
-=\sum_{k=1}^{6}C_{i,[d,k]}S_{m,[k]}(j\omega)\boldsymbol T_{GM,[k,:]}^{p}(j\omega).
-\]</div>
-</div>
-
-<p>각 후보 위치 \(i\)와 방향 \(d\)에서, <strong>변환계수와 passive 전달률의 내적</strong>을 \(Q_{[k,j]}\)로 묶는다.</p>
-<div class="eq">\[
-Q_{[k,j]}=C_{i,[d,k]}C_{i,[d,j]}\boldsymbol T_{GM,[k,:]}^{p}\bigl(\boldsymbol T_{GM,[j,:]}^{p}\bigr)^{\mathsf H},
-\qquad k,j\in\{1,\ldots,6\}.
 \]</div>
 <p>이를 이용하면 <strong>각 모드의 크기 항</strong>과 <strong>모드 사이의 교차항</strong>을 다음과 같이 표현할 수 있다.</p>
 <div class="eq" id="modal-norm-expansion" style="padding-bottom:58px">\[
