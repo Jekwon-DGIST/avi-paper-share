@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T090545Z">
+<meta name="avi-build" content="20261101T091633Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -347,27 +347,42 @@ footer{margin-top:18px}
 <h2>2. Noise 민감성 및 Control effort를 고려하여 어떤 모드를 이용하여 목표 전달률을 달성할지 정하는 방법</h2>
 <ul style="margin:18px 0 0;padding-left:22px"><li>핵심 : <strong>작업 위치의 전달률을 모드별 sensitivity로 표현</strong>하고, <strong>모드 사이의 교차항을 제한</strong>하여 각 모달 제어기가 만족해야 하는 성능 조건을 도출한다.</li></ul>
 
+<div id="modal-transfer-introduction">
 <p><strong>작업 위치의 전달률</strong>을 Modal space (CPD 디커플링 이후의 좌표 공간)의 전달률과 변환행렬의 곱으로 표현한다.</p>
-<div class="eq">\[
+<div class="eq brace-equation" id="modal-transfer-coordinate-relation">\[
 \begin{aligned}
 \boldsymbol T_{GW}^{\mathrm{cl}}(\boldsymbol r_i,j\omega)
-&=\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}\boldsymbol T_{GM}^{\mathrm{cl}}(j\omega)
-=\boldsymbol C_i\boldsymbol T_{GM}^{\mathrm{cl}}(j\omega),\\
-\boldsymbol C_i&=\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}.
+&=\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}\boldsymbol T_{GM}^{\mathrm{cl}}(j\omega),\\[12pt]
+\boldsymbol T_{GM}^{\mathrm{cl}}(j\omega)
+&=\underbrace{\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{\mathrm{cl}}(j\omega)}_{\mathclap{\substack{\text{지면 입력에서 모달 운동으로의}\\\text{폐루프 전달률}}}}.
 \end{aligned}
 \]</div>
-<p>\(\boldsymbol C_i\)는 후보 위치와 CPD 변환으로 정해지는 <strong>실수 상수 행렬</strong>이다. <strong>passive 모달 전달률</strong>과 <strong>모달 sensitivity</strong>를 다음과 같이 표현한다.</p>
-<div class="eq">\[
-\boldsymbol T_{GM}^{p}=\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{p},
-\qquad
-\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}=S_{m,[k]}\boldsymbol T_{GM,[k,:]}^{p}.
+<p>모달 운동을 후보 위치의 운동으로 변환하는 행렬을 \(\boldsymbol C_i\)로 둔다.</p>
+<div class="eq brace-equation" id="modal-position-transform">\[
+\begin{aligned}
+\boldsymbol T_{GW}^{\mathrm{cl}}(\boldsymbol r_i,j\omega)
+&=\boldsymbol C_i\boldsymbol T_{GM}^{\mathrm{cl}}(j\omega),\\[12pt]
+\boldsymbol C_i
+&=\underbrace{\boldsymbol J_w(\boldsymbol r_i)(\boldsymbol T_y^{\mathrm{cpd}})^{-1}}_{\mathclap{\substack{\text{모달 운동에서 후보 위치 운동으로의}\\\text{변환행렬}}}}.
+\end{aligned}
 \]</div>
-<p>따라서 <strong>출력 방향 \(d\)의 전달률</strong>은 <strong>여섯 모드(CPD의 모드)의 기여 합</strong>이다.</p>
-<div class="eq">\[
-\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)
-=\sum_{k=1}^{6}C_{i,[d,k]}S_{m,[k]}\boldsymbol T_{GM,[k,:]}^{p}.
+<p>\(\boldsymbol C_i\)는 후보 위치와 CPD 변환으로 정해지는 <strong>실수 상수 행렬</strong>이다. 지면 입력에서 모달 운동으로의 <strong>passive 전달률</strong>은 다음과 같다.</p>
+<div class="eq brace-equation" id="modal-passive-transfer">\[
+\boldsymbol T_{GM}^{p}(j\omega)
+=\underbrace{\boldsymbol T_y^{\mathrm{cpd}}\boldsymbol T_{GC}^{p}(j\omega)}_{\mathclap{\substack{\text{지면 입력에서 모달 운동으로의}\\\text{passive 전달률}}}}.
 \]</div>
-
+<p>각 모드의 폐루프 전달률은 <strong>모드별 Sensitivity와 passive 전달률의 곱</strong>으로 표현한다.</p>
+<div class="eq brace-equation" id="modal-sensitivity-factorization">\[
+\underbrace{\boldsymbol T_{GM,[k,:]}^{\mathrm{cl}}(j\omega)}_{\mathclap{\substack{\text{모드 }k\text{의}\\\text{폐루프 전달률}}}}
+=\underbrace{S_{m,[k]}(j\omega)}_{\mathclap{\substack{\text{모드 }k\text{의}\\\text{Sensitivity}}}}
+\underbrace{\boldsymbol T_{GM,[k,:]}^{p}(j\omega)}_{\mathclap{\substack{\text{모드 }k\text{의}\\\text{passive 전달률}}}}.
+\]</div>
+<p>\([k,:]\)는 모드 \(k\), \([d,:]\)는 출력 방향 \(d\)에 대한 <strong>여섯 지면 입력의 전달률을 모은 행</strong>을 뜻한다. 따라서 출력 방향 \(d\)의 전달률은 <strong>여섯 모드의 기여 합</strong>이다.</p>
+<div class="eq">\[
+\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i,j\omega)
+=\sum_{k=1}^{6}C_{i,[d,k]}S_{m,[k]}(j\omega)\boldsymbol T_{GM,[k,:]}^{p}(j\omega).
+\]</div>
+</div>
 <p>\(\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}\)은 <strong>여섯 지면 입력에 대한 전달률을 모은 행벡터</strong>이므로, 2-norm은 다음과 같이 정의된다.</p>
 <div class="eq">\[
 \left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
