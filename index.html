@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T082913Z">
+<meta name="avi-build" content="20261101T083956Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -309,10 +309,23 @@ footer{margin-top:18px}
 \]</div>
 <p><strong>지면 입력</strong>에서 <strong>작업 위치의 진동</strong>으로 <strong>전달되는 관계</strong>를 다음과 같이 정의한다.</p>
 <div class="eq workspace-implication-line" id="workspace-transfer-definition">
-<span>\(\displaystyle\boldsymbol q_w(\boldsymbol r,j\omega)={}\)</span>
+<span>\(\displaystyle\boldsymbol q_w(\boldsymbol r)={}\)</span>
 <span class="coordinate-annotated-atom" style="margin:0 50px 0 26px"><span>\(\displaystyle\underbrace{\boldsymbol T_{GW}^{\mathrm{cl}}(\boldsymbol r,j\omega)}\)</span><span class="coordinate-atom-caption">지면 진동이<br>상판 위치 \(\boldsymbol r\)로 전달되는 경로</span></span>
-<span class="coordinate-annotated-atom"><span>\(\displaystyle\underbrace{\boldsymbol q_g(j\omega)}\)</span><span class="coordinate-atom-caption">지면<br>진동</span></span>
+<span class="coordinate-annotated-atom"><span>\(\displaystyle\underbrace{\boldsymbol q_g}\)</span><span class="coordinate-atom-caption">지면<br>진동</span></span>
 <span>\(\displaystyle.\)</span>
+</div>
+<div id="workspace-transfer-calculation">
+<p>블록다이어그램에서 <strong>상판 중심의 폐루프 전달률</strong>에 <strong>위치 변환행렬</strong>을 적용하면, 작업 위치의 전달률은 다음과 같다.</p>
+<div class="eq" id="workspace-transfer-closed-loop">\[
+\begin{aligned}
+\boldsymbol T_{GW}^{\mathrm{cl}}(\boldsymbol r,j\omega)
+&=\boldsymbol J_w(\boldsymbol r)\boldsymbol T_{GC}^{\mathrm{cl}}(j\omega)\\
+&=\boldsymbol J_w(\boldsymbol r)
+\left[\boldsymbol I+\boldsymbol P(j\omega)\boldsymbol T_u^{\mathrm{cpd}}\boldsymbol C_m(j\omega)\boldsymbol T_y^{\mathrm{cpd}}\right]^{-1}
+\boldsymbol T_{GC}^{p}(j\omega).
+\end{aligned}
+\]</div>
+<p>\(\boldsymbol P\)는 구동기 입력에서 상판 중심 모션으로의 전달행렬, \(\boldsymbol C_m\)은 모달 제어기이며, \(\boldsymbol T_{GC}^{p}\)는 지면 진동에서 상판 중심 모션으로의 passive 전달률이다.</p>
 </div>
 <p>진동의 가중 평균 관계가 모든 지면 입력에 대해 성립하므로, <strong>전달행렬도 후보 위치 전달행렬의 가중 평균</strong>이다.</p>
 <div class="eq">\[
