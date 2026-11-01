@@ -164,8 +164,9 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 .q-definition-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;align-items:center}.q-definition-math{min-width:0}.q-definition-math .eq{margin:0!important}.q-diagonal-figure{margin:0;background:#fff;padding:12px;border-radius:6px;min-width:0}.q-diagonal-figure img{display:block;width:100%;height:auto}.q-diagonal-figure figcaption{text-align:center;color:#435b75;font-size:13px;line-height:1.7;margin-top:8px}@media(max-width:1050px){.q-definition-layout{grid-template-columns:1fr}}
+.controller-design-flow{list-style:none;max-width:1000px;margin:26px auto 16px;padding:0;display:flex;flex-direction:column;gap:44px;color:inherit}.controller-design-flow>li{position:relative;margin:0;padding:18px 24px;background:#fff;border:1px solid #d8d8d8;border-radius:8px;text-align:center}.controller-design-flow>li:not(:last-child)::after{content:"↓";position:absolute;left:50%;bottom:-39px;transform:translateX(-50%);font-size:26px;line-height:32px;font-weight:400;color:inherit}.controller-design-flow h3{margin:0 0 7px;font-size:19px;line-height:1.6;color:inherit;font-weight:400}.controller-design-flow p{margin:0;font-size:16px;line-height:1.8;color:inherit}@media(max-width:650px){.controller-design-flow>li{padding:15px 12px}.controller-design-flow h3{font-size:17px}.controller-design-flow p{font-size:14px}}
 </style>
-<meta name="avi-build" content="20261101T130616Z">
+<meta name="avi-build" content="20261101T131505Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -236,7 +237,13 @@ footer{margin-top:18px}
 
 <section class="specific-research-goal" aria-labelledby="specific-goal-title">
 <h2 id="specific-goal-title">제안하는 제어기 설계 방식 흐름도</h2>
-<!-- 수식 유도 후 본문 작성 -->
+<ol class="controller-design-flow" id="controller-design-flow" aria-label="제안하는 제어기 설계의 다섯 단계">
+<li><h3>① <strong>사용자 요구 설정</strong></h3><p>작업 영역과 목표 제진 성능 입력</p></li>
+<li><h3>② <strong>최악 진동 후보 위치 식별</strong></h3><p>설정한 작업 영역에서 진동이 가장 크게 발생할 수 있는 위치 선별</p></li>
+<li><h3>③ <strong>모드별 Sensitivity 상한 도출</strong></h3><p>후보 위치에서 목표 성능을 만족하는 모드별 억제 수준 계산<br><strong>Control effort 부담이 작은 모드를 더 많이 활용하도록 배분</strong></p></li>
+<li><h3>④ <strong>Weighting function 도출</strong></h3><p>모드별 Sensitivity 상한을 \(H_\infty\) 제어기의 성능 가중치로 연결</p></li>
+<li><h3>⑤ <strong>제어기 설계</strong></h3><p>도출한 Weighting function을 이용해 모달 제어기 설계</p></li>
+</ol>
 </section>
 </section>
 
