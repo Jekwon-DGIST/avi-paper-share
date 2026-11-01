@@ -164,7 +164,7 @@ footer{margin-top:18px}
 .chapter-memo textarea::placeholder{color:#a99d88}.chapter-memo textarea:focus{outline:2px solid #ba9c62;outline-offset:2px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 </style>
-<meta name="avi-build" content="20261101T092916Z">
+<meta name="avi-build" content="20261101T093627Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -345,6 +345,11 @@ footer{margin-top:18px}
 </section>
 <div class="modal-tone comparison-explanation cpd-ppt-bound" style="font-size:15px">
 <h2>2. Noise 민감성 및 Control effort를 고려하여 어떤 모드를 이용하여 목표 전달률을 달성할지 정하는 방법</h2>
+<p>\(\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}\)은 <strong>여섯 지면 입력에 대한 전달률을 모은 행벡터</strong>이므로, 2-norm은 다음과 같이 정의된다.</p>
+<div class="eq">\[
+\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
+=\sqrt{\left|T_{GW,[d,1]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2+\cdots+\left|T_{GW,[d,6]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2}.
+\]</div>
 <ul style="margin:18px 0 0;padding-left:22px"><li>핵심 : <strong>작업 위치의 전달률을 모드별 sensitivity로 표현</strong>하고, <strong>모드 사이의 교차항을 제한</strong>하여 각 모달 제어기가 만족해야 하는 성능 조건을 도출한다.</li></ul>
 
 <div id="modal-transfer-introduction">
@@ -383,11 +388,7 @@ footer{margin-top:18px}
 =\sum_{k=1}^{6}C_{i,[d,k]}S_{m,[k]}(j\omega)\boldsymbol T_{GM,[k,:]}^{p}(j\omega).
 \]</div>
 </div>
-<p>\(\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}\)은 <strong>여섯 지면 입력에 대한 전달률을 모은 행벡터</strong>이므로, 2-norm은 다음과 같이 정의된다.</p>
-<div class="eq">\[
-\left\|\boldsymbol T_{GW,[d,:]}^{\mathrm{cl}}(\boldsymbol r_i)\right\|_2
-=\sqrt{\left|T_{GW,[d,1]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2+\cdots+\left|T_{GW,[d,6]}^{\mathrm{cl}}(\boldsymbol r_i)\right|^2}.
-\]</div>
+
 <p>각 후보 위치 \(i\)와 방향 \(d\)에서, <strong>변환계수와 passive 전달률의 내적</strong>을 \(Q_{[k,j]}\)로 묶는다.</p>
 <div class="eq">\[
 Q_{[k,j]}=C_{i,[d,k]}C_{i,[d,j]}\boldsymbol T_{GM,[k,:]}^{p}\bigl(\boldsymbol T_{GM,[j,:]}^{p}\bigr)^{\mathsf H},
