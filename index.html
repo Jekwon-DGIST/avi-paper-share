@@ -165,7 +165,7 @@ footer{margin-top:18px}
 @media(max-width:650px){.chapter-memo{padding:12px;margin-bottom:20px}.chapter-memo textarea{font-size:15px}.chapter-memo-header{gap:8px;align-items:baseline}}
 .q-definition-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:22px;align-items:center}.q-definition-math{min-width:0}.q-definition-math .eq{margin:0!important}.q-diagonal-figure{margin:0;background:#fff;padding:12px;border-radius:6px;min-width:0}.q-diagonal-figure img{display:block;width:100%;height:auto}.q-diagonal-figure figcaption{text-align:center;color:#435b75;font-size:13px;line-height:1.7;margin-top:8px}@media(max-width:1050px){.q-definition-layout{grid-template-columns:1fr}}
 </style>
-<meta name="avi-build" content="20261101T123759Z">
+<meta name="avi-build" content="20261101T124105Z">
 </head>
 <body><main>
 <header><div class="tag">선행연구 비교 · 논문 3–5·7–8</div>
@@ -415,15 +415,19 @@ P_{\mathrm{mag,total}}
 +\sum_{k&lt;j}\frac{1}{|P_{m,[k]}(j\omega)|\,|P_{m,[j]}(j\omega)|}.
 \]</div>
 <p><strong>각 모드의 대각항</strong>에는 해당 플랜트 크기 제곱의 역수에 비례하여 허용량을 배분한다.</p>
-<div class="eq" id="modal-allocation-diagonal">\[
+<div class="eq brace-equation" id="modal-allocation-diagonal">\[
+\underbrace{
 Q_{d,[k,k]}(\boldsymbol r_i)|S_{m,[k]}|^2
-\leq\frac{|R(j\omega)|^2}{P_{\mathrm{mag,total}}}\frac{1}{|P_{m,[k]}(j\omega)|^2},
+\leq\frac{|R(j\omega)|^2}{P_{\mathrm{mag,total}}}\frac{1}{|P_{m,[k]}(j\omega)|^2}
+}_{\mathclap{\substack{\text{각 모드의 }P_{m,[k]}\text{ 크기와 해당 위치·방향의 진동 기여도가 클수록,}\\\text{더 강한 진동 억제 부담을 가져가도록 한다.}}}},
 \qquad k=1,\ldots,6.
 \]</div>
 <p><strong>두 모드 사이의 교차항</strong>에는 두 플랜트 크기 곱의 역수에 비례하여 허용량을 배분한다.</p>
-<div class="eq" id="modal-allocation-cross">\[
+<div class="eq brace-equation" id="modal-allocation-cross">\[
+\underbrace{
 2|Q_{d,[k,j]}(\boldsymbol r_i)|\,|S_{m,[k]}|\,|S_{m,[j]}|
-\leq\frac{|R(j\omega)|^2}{P_{\mathrm{mag,total}}}\frac{1}{|P_{m,[k]}(j\omega)|\,|P_{m,[j]}(j\omega)|},
+\leq\frac{|R(j\omega)|^2}{P_{\mathrm{mag,total}}}\frac{1}{|P_{m,[k]}(j\omega)|\,|P_{m,[j]}(j\omega)|}
+}_{\mathclap{\substack{\text{각 모드의 }P_{m,[k]}\text{ 크기와 해당 위치·방향의 진동 기여도가 클수록,}\\\text{더 강한 진동 억제 부담을 가져가도록 한다.}}}},
 \qquad 1\leq k&lt;j\leq6.
 \]</div>
 <p>교차항의 조건을 만족시키도록, <strong>각 모드의 Sensitivity 상한</strong>을 다음과 같이 정한다.</p>
